@@ -1,0 +1,1991 @@
+ 
+ Planning Database with  2020 Census and 
+201 6 – 2020 American  Community 
+Survey  Data  
+ 
+ 
+At the Block Group Level  
+ 
+   
+ 
+   
+ 
+   
+ 
+    
+ 
+   
+ 
+   
+ 
+   
+ 
+    
+ 
+  
+March  23, 202 3 
+2  
+  
+Table of Contents  
+Statement  of Purpose  .......................................................................................................................................... 3 
+History  .................................................................................................................................................................. 3 
+  Limitations  of the Data ......................................................................................................................................... 4 
+File Structure of  the Database  ............................................................................................................................. 6 
+Description of Variables in  the Database  ............................................................................................................ 6 
+Appendix A. Margin  of Error  Calculations and  Nonsampling  Error ............................................................... 37 
+Appendix B. Calculating Response Rates ………………………………………………………………………………………………. 39 
+Appendix C. Key Estimates  of the Planning  Database  ...................................................................................... 40 
+Appendix D. Changes to Geography  .................................................................................................................. 43 
+Appendix E. Changes to ACS Variables ………………………………………………………………………………………………………4 4 
+ 
+3  
+ Statement  of Purpose  
+ 
+The 2022  Block -Group Level Planning Database (also called the PDB) is a data set that contains  a range of 
+housing, demographic,  socioeconomic, and census operational data. The se data  have been extracted 
+from  2020 Census and  2016 -2020 American Community Survey (ACS) data sources , and summarized for 
+all block groups  in the country  and the territory o f Puerto Rico. The PDB is generally  updated annually and 
+made publicly available.  The prior version was the 20 21 PDB, which was  created using 2010 Census and 
+2015-2019 American Community Survey data.  
+The PDB can be used in many ways, including:  
+ 
+• Identifying areas where special outreach and promotion efforts could be considered  
+• Linking spatial map data files to create thematic maps  
+• Generating reports, cross tabulations, and simple analyses  
+• Planning recruitment  activities by Regional Census Centers, and Local Census Offices  
+• Educational purposes  
+ 
+History  
+In 1987, the first documentation of elements for developing a “Planning Database” was written by 
+Antonio Bruce at the Census Bureau1.  Discussion continued in the 1990s, and the first completed PDB 
+was a county -level dataset during this decade which was not publicly released .  After the 2000 Census , 
+an updated  “2000  PDB” was the first to become publicly available, and contained data from the 2000 
+Census at the tract level2.  This  PDB contained 48 variables  for 65,184 tracts; these included  total  
+counts  for population and housing units,  various percentages for housing and dem ographic 
+characteristics,  mail return rates, and a derived metric known as the “Hard To Count (HTC)” score3. 
+The HTC score summarizes the attributes of each tract in terms of enumeration difficulty.  
+After the 2010 Census , an updated versi on of the file was created, referred to as  the 2012 PDB.  This 
+differed from the 2000 PDB in that it contained data from the 2010 decennial census, including 
+operational variables such as the 2010 mail return rate, and that the data was provided at the block 
+group level  rather than tract level4.  In addition, it included American Community Survey (ACS) 
+estimates based on 5 -year data from 2006 -2010, along with margins of error for each estimate.  Thus, 
+the 2012 PDB updated and expanded the data from the 2000 PDB, wi th a new total of 179 variables  
+for 220,335  block groups.    
+ 
+1 Bruce, Antonio.  1987. “Identifying Hard -to-Enumerate Areas: Preliminary Research and Evaluation”, unpublished 
+paper, Washington, D.C., U.S. Bureau of the Census.  
+2 Census tracts are small, relatively permanent sta tistical subdivisions of a county or equivalent entity that are updated 
+by local participants prior to each decennial census and generally have a population size between 1,200 and 8,000 
+people.  These are divided into census block groups, which are in turn divided into blocks.  Each of these terms and 
+others are defined in a Census glossary located at https://www.census.gov/programs -
+surveys/geography/abo ut/glossary.html.  
+3 The set of algorithms used to define HTC score is listed in the documentation for the 2000 PDB, located at 
+https://www2.census.gov/programs -surveys/research/guidance/planning -databases/2000/pdb -tract -2000.pdf .  
+4 Block groups are statistical divisions of census tracts and generally contain between 300 and 6,000 people.  
+4  
+ Starting in 2014, the PDB has been updated and released each year  (except 2017)  at both the tract 
+and block group level s.  Also, starting in 201 8, each version of the PDB has been provided through  a 
+Census Application Programming Interface (API)5.  The exact number of variables, tracts, or block 
+groups has varied in each version of the PDB.   However, e ach version prior to the 2022 PDB has 
+contained data from the 2010 Census and the most recent 5 -year ACS data available.  The 2022 PDB is 
+the first version containing data from the 2020 Census, along with the most recent 5 -year ACS data 
+available.  
+One new statistic beginning in 2014 was the replacement of the HTC score with  the “ Low Response 
+Score” (LRS).   The LRS is a predicted value of self- response at the tract level. Results were used for 
+geographic targeting of outreach efforts.   Other ACS variable names and definitions may change 
+between years as well.   
+An additional categorical variable was added in 2019 for the tract level PDB known as the 
+“Segmentation Profile;” each category for this variable identifies census tracts with similar predicted 
+self-response behavior and similar demographic variables associated with self- response.  Another 
+addition to the 2019 PDB at the tract level was the ACS self- response rate; the Census Bureau plans to 
+add this statistic based on the latest 5 -year ACS data going forward.  Finally, a special one -time release 
+of the 2020 PDB was issued at the state and county level.  
+ 
+Limitations of the Data  
+ 
+Data contained in the 202 2 PDB are subject to nonsampling error. In addition, the ACS data are also 
+subject to sampling error.  Both of these are described in more detail in Appendix A.  
+ 
+In addition, a unique limitation of the 2022 PDB is that it is a limited release, with a smaller set of 
+variables  compared to previous years’ versions of the PDB. Some of these excluded variables are the 
+LRS, the Segmentation Profile, and 2020 Census operational variables.  As more 2020 Census data 
+become available, future PDB releases will contain a new LRS and additional Census variables.  However, none of the ACS variables that typically appear in previous versions of the PDB are omitted from the 2022 PDB.
+ 
+5 More information about the Census API is provided at https://www.census.gov/developers/ .  More information 
+about the Planning Database API is provided at https://www.census.gov/data/developers/data -sets/p lanning -
+database.html . 
+5  
+ 
+6  
+ File Structure  of the Database  
+ 
+The 202 2 PDB is available in a .CSV format, as well as in API. The data file contains  242,335 total 
+observations. Users should take caution when saving the entire .CSV file as an Excel workbook 
+because of Excel’s row number limit. The first row of the data file contains variable numbers for each 
+column that can be used  to match the variable names against the variable numbers used in this 
+document. The value of cells  in the PDB may not be shown for block groups  containing small 
+populations or few housing units; cell s with missing data are denoted by blank values. Data 
+suppression of ACS estimates limits the disclosure of information about individual respondents and 
+reduces the number of estimates with unacceptable levels of statistical reliability. More information 
+about data suppression in ACS data can be found here:  https://www.census.gov/programs -
+surveys/acs/technical -documentation/data -suppression.html . 
+ 
+The 202 2 PDB contains data from two major source files:  
+ 
+1. 2020 Census data * – Population and housing 
+2. 2016 – 2020 5- year ACS Summary File * – Population, housing, and socioeconomic  
+*The ACS Summary File consists of comprehensive sets of tabular data that are also published on 
+data.census.gov.  Statistics downloaded from data.census.gov receive  clearances from  the Disclosure 
+Review Board before being posted. No  clearance number  is required at this time for such information 
+products.  
+The first  100+  variables in the 202 2 PDB are estimates directly taken or derived from the two sources 
+mentioned above. The remaining variables are estimated percentages calculated by  dividing 
+estimates by their given denominator. All percentages were calculated using variables in this file, and the accompanying MOEs were calculated using the method s published in  Chapters 7 -8 of 
+Understanding and Using American Community Survey Data: What All Data Users Need to Know (https://www.census.gov/content/dam/Census/library/publications/2020/acs/acs_general_handboo
+k_2020.pdf ).  
+ 
+ 
+Description  of Variables  in the Database  
+ 
+This section contains descriptions of all variables in the 202 2 PDB at the block group  level. For readers 
+and data users interested in more details for these variables, additional documentation for the 
+decennial data can be found in the 2020 Census State Redistricting Data (Public Law 94 -171)  Summary 
+File: Technical Documentation (2020 Census State Redistricting Data (Public  Law 94- 171) Summary 
+File),  and for ACS data, documentation can be found in “the American Community Survey and Puerto 
+Rico Community Survey 201 8 Subject Definitions (https://www2.census.gov/programs -
+surveys/acs/tech_docs/subject_definitions/2018_ACSSubjectDefinitions.pdf ).   
+ 
+1. Level of Geography: The PDB contains one record per block group. Except where noted, counts 
+enable the user to ag gregate the data to the block group  level or to higher units of geography. 
+7  
+ When aggregating to higher geographies, the user should be aware that block groups  with 
+missing values may not be represented in the resulting summary.  
+2. Counts versus Percents: While both count estimates and percentage estimates have been 
+provided, the appropriate variables to be used as denominators when calculating percentages 
+from co unt variables are noted.  
+3. Median values: Selected median values are also provided. A blank percentage value indicates 
+that the numerator or denominator used in its calculation was missing, or the denominator had a 
+value of zero. Median household income and median house value are provided for the block 
+group and for the tract in which the block group is located.  
+4. Census versus ACS variables: For variables in which both census and ACS estimates are available, 
+both are provided. Because the PDB is updated annual ly, the ACS estimates show estimated 
+change in these measures since 2020  as the decade progresses. The 201 6 – 2020 ACS 5 -year 
+estimates are based on data collected between January 201 6 and December 20 20. They 
+represent average characteristics over the 5 -year period, and thus have a larger sample size than 
+1-year ACS estimates but are less current than 1 -year ACS estimates. Sources of all variables are 
+indicated; “20 20 Census” refers to data items from the 20 20 decennial census, and “ACS” refers 
+to ACS data items asked of the persons and housing units in the 201 6 to 20 20 ACS samples.  
+5. Margin of Error: ACS estimates appear with the margin of error (MOE) associated with the 
+estimate. Some custom measures were created by aggregating published estimates; the MOEs of 
+such aggregates were derived from published MOEs and may differ from MOEs i n other data 
+products. Variable labels indicate which MOEs were derived. Please see Appendix A. Margin of Error Calculations  of this document for more information about how these derived MOEs were 
+calculated and how to calculate MOEs when creating custom aggregate estimates.  
+6. Place and Time: The geographic vintage of the block groups and tracts in this file are from 20 20 
+Census geography.  “Census geography” refers to the basic geographic data associated with the 
+items.  The Cen sus Bureau updates geographic identifiers and boundaries between censuses in 
+rare instances. Data from the 201 6 – 2020 ACS 5 -year estimates use the most recent geographic 
+identifiers .  More information about geographic variables can be found in Appendix D of this 
+document, as well as here:  https://www.census.gov/programs -
+surveys/geography/about/glossary.html
+. 
+ 
+Block groups  deemed uninhabitable are indicated with the Flag variable. These block groups have a 
+zero census population but, due to the nature of t he ACS estimates, may contain ACS population 
+estimates.  
+ 
+8   
+ 
+VARNUM  NAME  Unit of Measure  LABEL  Definitions  Unit Level  Source  Denominator Note  
+1 GIDBG Geography  State /County /Tract/BG: 12-digit code  A 12 digit code including 
+State/County/Tract/Block Group 
+where the first two digits denote State, the next three digits denote County,  
+the next six digits denote Tract, and 
+the last digit denotes Block Group.  Block group  Census 
+geography   
+2 State  Geography  FIPS State: 2 -digit code  FIPS code of State or statistically 
+equivalent entity (Puerto Rico, D.C., American Samoa, Commonwealth of Northern Mariana Islands, Guam, 
+U.S. Virgin Islands)  Block group  Census 
+geography   
+3 State_name  Geography  State Name  Name of State or statistically 
+equivalent entity (Puerto Rico, D.C., American Samoa, Commonwealth of Northern Mariana Islands, Guam, 
+U.S. Virgin Islands)  Block group  Census 
+geography   
+4 County  Geography  FIPS County: 3 -digit code  FIPS code of county (primary legal  
+division of a state) or statistically 
+equivalent entity  Block group  Census 
+geography   
+5 County_name  Geography  County Name  Name of County or statistically 
+equivalent entity  Block group  Census 
+geography   
+6 Tract  Geography  Census Tract: 6 -digit code  Subdivision of a County or 
+statistically equivalent entity (0 to over 25,000 people per Tract with an 
+average size of 4,200)  Tract  Census 
+geography   
+7 Block_group  Geography  Census Block Group: 1 -digit code  Group of blocks within the same 
+Census Tract (0 to over 25,000 people 
+per Block Group with an average size 
+of 1,400)  Block group  Census 
+geography   
+8 Flag Geography  Tract containing only block groups with 
+block group code 0 (zero), representing 
+areas that are not habitable  If a tract contains only uninhabitable 
+land, this variable is filled. Otherwise, 
+this variable is blank.  Block group  Census 
+geography   
+9 LAND_AREA  Geography  Land area (sq.mi.)  Land area of geographical entity in 
+square miles  Block group  Census 
+geography   
+10 AIAN_LAND  Geography  Number of block groups in the tract that 
+are located on any part of an American Indian, Alaska Native, or Native 
+Hawaiian area  The number of block groups in this 
+tract that are located on any part of an American Indian, Alaska Native, or 
+Native H awaiian area  Block group  Census 
+geography   
+ 
+9  VARNUM  NAME  Unit of Measure  LABEL  Definitions  Unit Level  Source  Denominator Note  
+11 Tot_Population_CEN_20 20 Population  Total population in the 2 020 Census  U.S. resident population includes 
+everyone whose usual place of 
+residence was in the tract at the time 
+of the 20 20 Census  Persons  2020 Census   
+12 Tot_Population_ACS _16_20  Population  Total Population in the ACS  U.S. resident population includes 
+everyone who meets the ACS residence rules in the tract at the time 
+of the ACS interview  Persons  ACS   
+13 Tot_Population_ACSMOE _16_20  Population  MOE - Total Population  Margin of Error for Total Population  Persons  ACS   
+14 Males_ACS _16_20  Population  Number of Males in the ACS  Number of Males in ACS Total 
+Population  Persons  ACS  Tot_Population_ACS_ 16_20  
+15 Males_ACSMOE _16_20  Population  MOE - Number of Males  Margin of Error for Number of Males  Persons  ACS   
+16 Females_ACS _16_20  Population  Number of Females in the ACS  Number of Females in ACS Total 
+Population  Persons  ACS  Tot_Population_ACS_ 16_20  
+17 Females_ACSMOE _16_20  Population  MOE - Number of Females  Margin of Error for Number of 
+Females  Persons  ACS   
+18 Median_Age_ACS _16_20  Population  Median Age in the ACS  Median age of ACS Total Population  Persons  ACS  Tot_Population_ACS_ 16_20  
+19 Median_Age_ACSMOE _16_20  Population  MOE - Median Age  Margin of Error for Median age of 
+ACS Total Population  Persons  ACS   
+20 Pop_under_5_ACS _16_20  Population  Persons less than age 5 in the ACS  Number of persons under age 5 at the 
+time of the ACS interview  Persons  ACS  Tot_Population_ACS_ 16_20  
+21 Pop_under_5_ACSMOE _16_20  Population  MOE - Person less than age 5  Margin of Error for Persons less than 
+age 5  Persons  ACS   
+22 Pop_5_17_ACS _16_20  Population  Persons ages  5 through 17 in the ACS  Number of persons ages 5 to 17 at the 
+time of the ACS interview  Persons  ACS  Tot_Population_ACS_ 16_20  
+23 Pop_5_17_ACSMOE _16_20  Population  MOE - Persons ages 5 through 17  Margin of Error for Persons ages 5 to 
+17 Persons  ACS   
+24 Pop_18_24_ACS _16_20  Population  Person ages 18 through 24 in the ACS  Number of persons ages 18 to 24 at 
+the time of the ACS interview  Persons  ACS  Tot_Population_ACS_ 16_20  
+25 Pop_18_24_ACSMOE _16_20  Population  MOE - Persons ages 18 through 24 
+(Derived)  Margin of Error for Persons ages 18 to 
+24 Persons  ACS   
+26 Pop_25_44_ACS _16_20  Population  Persons ages 25 through 44 in the ACS  Number of persons ages 25 to 44 at 
+the time of the ACS interview  Persons  ACS  Tot_Population_ACS_ 16_20  
+27 Pop_25_44_ACSMOE _16_20  Population  MOE - Persons ages 25 through 44 
+(Derived)  Margin of Error for Persons ages 25 to 
+44 Persons  ACS   
+28 Pop_45_64_ACS _16_20  Population  Persons ages 45 through 64 in the ACS  Number of persons ages 45 to 64 at 
+the time of the ACS interview  Persons  ACS  Tot_Population_ACS_ 16_20  
+29 Pop_45_64_ACSMOE _16_20  Population  MOE - Persons ages 45 through 64 
+(Derived)  Margin of Error for Persons ages 45 to 
+64 Persons  ACS   
+30 Pop_65plus_ACS _16_20  Population  Persons ages  65 and over in the ACS  Number of persons age 65 and over at Persons  ACS  Tot_Population_ACS_ 16_20  
+ 
+10  VARNUM  NAME  Unit of Measure  LABEL  Definitions  Unit Level  Source  Denominator Note  
+the time of the ACS interview  
+31 Pop_65plus_ACSMOE _16_20  Population  MOE - Persons ages 65 and over  Margin of Error for Persons ages 65 
+and over  Persons  ACS   
+32 Tot_GQ_CEN_20 20 Population  Total Group Quarters Population in the 
+2020 Census  Number of people living or staying in 
+a group living arrangement owned by 
+an entity providing housing to residents, who are usually unrelated, 
+as of April 1, 20 20 Persons  2020 Census  Tot_Population_CEN_ 20 20 
+33 Inst_GQ_CEN_20 20 Population  Institutionalized Group Quarters 
+Population in the 20 20 Census  Number of those in group quarters 
+primarily ineligible, unable, or unlikely to participate in labor force while residents. Institutional group quarters include correctional facilities for adults, juvenile facilities, nursing 
+facilities, and other institutional 
+facilities.  Persons  2020 Census  Tot_Population_CEN_ 20 20 
+34 Non_Inst_GQ_CEN_20 20 Population  Non-Institutionalized Group Quarters 
+Population in the 20 20 Census  Number of those in group quarters 
+primarily eligible, able, or likely to 
+participate in labor force while residents. Noninstitutional group quarters include college/university 
+student housing, military quarters, and 
+other noninstitutional facilities.  Persons  2020 Census  Tot_Population_CEN_ 20 20 
+35 Hispanic_CEN_20 20 Population  Persons of Hispanic Origin in the 20 20 
+Census  Number of people who identify as 
+"Mexican", "Puerto Rican", "Cuban", 
+or "another Hispanic, Latino, or Spanish origin" in the 202 0 Census 
+population  Persons  2020 Census  Tot_Population_CEN_ 20 20 
+36 Hispanic_ACS _16_20  Population  Persons of Hispanic Origin in the ACS  Number of people who identify as 
+"Mexican",  "Puerto Rican", "Cuban", 
+or "another Hispanic, Latino, or 
+Spanish origin" in the ACS population  Persons  ACS  Tot_Population_ACS_ 16_20  
+37 Hispanic_ACSMOE _16_20  Population  MOE - Persons of Hispanic Origin  Margin of Error of Hispanic Origin 
+Population  Persons  ACS   
+38 NH_White_alone_CEN_20 20 Population  Non-Hispanic White only in the 20 20 
+Census  Number of people who indicate no 
+Hispanic origin and their only race as 
+"White" or report entries such as Irish, 
+German, Italian, Lebanese, Arab, Moro ccan, or Caucasian in the 20 20 
+Census population  Persons  2020 Census  Tot_Population_CEN_ 20 20 
+ 
+11  VARNUM  NAME  Unit of Measure  LABEL  Definitions  Unit Level  Source  Denominator Note  
+39 NH_White_alone_ACS _16_20  Population  White alone, not Hispanic or Latino 
+population in the ACS  Number of people who indicate no 
+Hispanic origin and their only race as 
+"White" or report entries such as Irish, 
+German, Italian, Lebanese, Arab, 
+Moroccan, or Caucasian in the ACS 
+population  Persons  ACS  Tot_Population_ACS_ 16_20  
+40 NH_White_alone_ACSMOE _16_20  Population  MOE - White alone, not Hispanic or 
+Latino population  Margin of Error of Non -Hispanic 
+White only  Persons  ACS   
+41 NH_Blk_alone_CEN_20 20 Population  Non-Hispanic Black/African American 
+only in the 20 20 Census  Number of people who indicate no 
+Hispanic origin and their only race as 
+"Black, African Am., or Negro" or report entries such as African 
+American, Kenyan, Nigerian, or 
+Haitian in the 20 20 Census population  Persons  2020 Census  Tot_Population_CEN_ 20 20 
+42 NH_Blk_alone_ACS _16_20  Population  Black or African American alone, not 
+Hispanic or Latino population in the 
+ACS  Number of people who indicate no 
+Hispanic origin and their only race as "Black, African Am., or Negro" or report entries such as African American, Kenyan, Nigerian, or 
+Haitian in the ACS population  Persons  ACS  Tot_P opulation_ACS_ 16_20  
+43 NH_Blk_alone_ACSMOE _16_20  Population  MOE - Black or African American 
+alone, not Hispanic or Latino population  Margin of Error of Non -Hispanic 
+Black or African - American only  Persons  ACS   
+44 NH_AIAN_alone_CEN_20 20 Population  Non-Hispanic American Indian and 
+Alaska Native only in the 202 0 Census  Number of people who indicate no 
+Hispanic origin and their only race as "American Indian or Alaska Native" or report entries such as Navajo, Blackfeet, Inupiat, Yup'ik, or Central/South American Indian 
+groups in the 20 20 Census population  Persons  2020 Census  Tot_Population_CEN_ 20 20 
+45 NH_AIAN_alone_ACS _16_20  Population  American Indian and Alaska Native 
+alone, not Hispanic or Latino population in the ACS Number of people who indicate no 
+Hispanic origin and their only race as "American Indian or Alaska Native" or report entries such as Navajo, Blackfeet, Inupiat, Yup'ik, or Central/South American Indian 
+groups in the ACS population  Persons  ACS  Tot_Populatio n_ACS_ 16_20  
+46 NH_AIAN_alone_ACSMOE _16_20  Population  MOE - American Indian and Alaska 
+Native alone, not Hispanic or Latino 
+population  Margin of Error of Non -Hispanic 
+American Indian and Alaska Native 
+only Persons  ACS   
+ 
+12  VARNUM  NAME  Unit of Measure  LABEL  Definitions  Unit Level  Source  Denominator Note  
+47 NH_Asian_alone_CEN_ 2020  Population  Non-Hispanic Asian only in the 2020  
+Census  Number of people who indicate no 
+Hispanic origin and their only race as 
+"Asian Indian", "Chinese", "Filipino", "Korean", "Japanese", "Vietnamese", 
+or "Other Asian" in the 2020 Census 
+population  Persons  2020  Census  Tot_Population_CEN_ 2020  
+48 NH_Asian_alone_ACS _16_20  Population  Asian alone, not Hispanic or Latino 
+population in the ACS  Number of people who indicate no 
+Hispanic origin and their only race as 
+"Asian Indian", "Chinese", "Filipino", "Korean", "Japanese", "Vietnamese", or "Other Asian" in the ACS 
+population  Persons  ACS  Tot_Population_ACS_ 16_20  
+49 NH_Asian_alone_ACSMOE _16_20  Population  MOE - Asian alone, not Hispanic or 
+Latino population  Margin of Error of Non-Hispanic 
+Asian only  Persons  ACS   
+50 NH_NHOPI_alone_CEN_ 2020  Population  Non-Hispanic Native Hawaiian and 
+Other Pacific Islander only in the 2020 Census  Number of people who indicate no 
+Hispanic origin and their only race as "Native Hawaiian", "Guamania n or 
+Chamorro", "Samoan", or "Other Pacific Islander" in the 2020 Census 
+population  Persons  2020  Census  Tot_Population_CEN_ 2020  
+51 NH_NHOPI_alone_ACS _16_20  Population  Native Hawaiian and Other Pacific 
+Islander alone, not Hispanic or Latino population in the ACS  Number of people who indicate no 
+Hispanic origin and their only race as "Native Hawaiian", "Guamanian or Chamorro", "Samoan", or "Other Pacific Islander" in the ACS 
+population  Persons  ACS  Tot_Population_ACS_ 16_20  
+52 NH_NHOPI_alone_A CSMOE _16_20  Population  MOE - Native Hawaiian and Other 
+Pacific Islander alone, not Hispanic or 
+Latino population  Margin of Error of Non -Hispanic 
+Native Hawaiian and Other Pacific 
+Islander only  Persons  ACS   
+53 NH_SOR_alone_CEN_ 2020  Population  Non-Hispanic Some other race only in 
+the 2020 Census  Number of people who indicate no 
+Hispanic origin and their race as other than "White", "Hispanic", "Black or African American", "American Indian 
+or Alaska Native", "Asian", and 
+"Native Hawaiian or Other Pacific Islander" in the 2020 Census 
+population  Persons  2020  Census  Tot_Population_CEN_ 2020  
+54 NH_SOR_alone_ACS _16_20  Population  Some other race alone, not Hispanic or 
+Latino population in the ACS  Number of people who indicate no 
+Hispanic origin and their race as other than "White", "Hispanic", "Black or 
+African American", "American Indian 
+or Alaska Native", "Asian", and Persons  ACS  Tot_Population_ACS_ 16_20  
+ 
+13  VARNUM  NAME  Unit of Measure  LABEL  Definitions  Unit Level  Source  Denominator Note  
+"Native Hawaiian or Other Pacific 
+Islander" in the ACS population  
+55 NH_SOR_alone_ACSMOE _16_20  Population  MOE - Some other race alone, not 
+Hispanic or Latino population  Margin of Error of Non -Hispanic 
+Some other Race only  Persons  ACS   
+56 NH_ Multi_Races _CEN_ 2020  Population  Non-Hispanic Multi -Racial  in the 2020  
+Census  Number of people who indicate no 
+Hispanic origin and their race as at 
+least two of  "White", "Black or 
+African American", "American Indian 
+or Alaska Native", "Asian", "Native 
+Hawaiian or Other Pacific Islander," or “Some Other Race” in the 2020 
+Census population  Persons  2020  Census  Tot_Population_CEN_ 2020  
+57 NH_ Multi_Races _ACS _16_20  Population  Multi -Racial , not Hispanic or Latino 
+population in the ACS  Number of people who indicate no 
+Hispanic origin and their race as at least two of  "White", "Black or 
+African American", "American Indian or Alaska Native", "Asian", "Native Hawaiian or Other Pacific Islander," or “Some Other Race” in the ACS 
+population  Persons  ACS  Tot_Population_ACS_ 16_20  
+58 NH_ Multi_Races _ACSMOE _16_20  Population  MOE – Multi -Racial , not Hispanic or 
+Latino population  Margin of Error of Non -Hispanic 
+Multi- Racial  Persons  ACS   
+59 Pop_5yrs_Over_ACS _16_20  Population  Population 5 years and older 
+(denominator for language) in the ACS  Number of people ages 5 years and 
+over at time of interview in the ACS 
+population  Persons  ACS  Tot_Population_ACS_ 16_20  
+60 Pop_5yrs_Over_ACSMOE _16_20  Population  MOE - Population 5 years and older 
+(denominator for language)  Margin of Error of Population 5 years 
+and over  Persons  ACS   
+61 Othr_Lang_ACS _16_20  Population  Population 5 years and older that speak 
+a language other than English at home in the ACS Number of people ages 5 years and 
+over at the time of interview that speak a language other than English at home in the ACS population, 
+regardless of ability to speak English  Persons  ACS  Pop_5yrs_Over_ACS_ 16_20  
+62 Othr_Lang_ACSMOE _16_20  Population  MOE - Population 5 years and older that 
+speak a language other than English at home  Margin of Error of Population 5 years 
+and over that speak a language other than English at home, regardless of 
+ability to speak English  Persons  ACS   
+ 
+14  VARNUM  NAME  Unit of Measure  LABEL  Definitions  Unit Level  Source  Denominator Note  
+63 Pop_25yrs_Over_ACS _16_20  Population  Number of people 25 years old and over 
+(denominator for educ. attainment) in 
+the ACS  Number of people ages 25 years and 
+over at time of interview in the ACS 
+population  Persons  ACS  Tot_Population_ACS_ 16_20  
+64 Pop_25yrs_Over_ACSMOE _16_20  Population  MOE - Number of people 25 y ears old 
+and over (denominator for educ. 
+attainment)  Margin of Error of Number of people 
+25 years old and over  Persons  ACS   
+65 Not_HS_Grad_ACS _16_20  Population  Number of people 25 years old and over 
+who are not high school graduates  Number of people ages 25 years and 
+over at time of interview who are not 
+high school graduates and have not received a diploma or the equivalent 
+in the ACS population  Persons  ACS  Pop_25yrs_Over_ACS _16_20  
+66 Not_HS_Grad_ACSMOE _16_20  Population  MOE - Number of people 25 years old 
+and over who are not high school 
+graduates  Margin of Error of Number of people 
+25 years old and over who are not 
+high school graduates  Persons  ACS   
+67 Educ_Grade6orLess_ACS_16_20  Population  Number of people 25 years old and over 
+who have a highest level of education of Grade 6 or less  Number of people ages 25 years and 
+over at time of interview who have a highest level of education of Grade 6 
+or less in the ACS population  Persons  ACS  Pop_25yrs_Over_ACS_16_20  
+68 Educ_Grade6orLess_ACSMOE_16_20  Population  MOE - Number of people 25 years old 
+and over who have a highest level of 
+education of Grade 6 or less  Margin of Error of Number of people 
+ages 25 years and over who have a highest level of education of Grade 6 
+or less Persons  ACS   
+69 College_ACS _16_20  Population  Persons 25+ years and over with 
+bachelors degree or higher in the ACS  Number of people ages 25 years and 
+over at the time of interview with a 
+college degree or higher in the ACS 
+population  Persons  ACS  Pop_25yrs_Over_ACS _16_20  
+70 College_ACSMOE _16_20  Population  MOE - Persons 25+ years and over with 
+bachelors degree or higher  Margin of Error of Persons 25 and 
+over with a college degree or higher  Persons  ACS   
+71 Pov_Univ_ACS _16_20  Population  Population for whom poverty level is 
+determined (denominator for persons blw pov.) in the ACS  Number of people excluding 
+institutionalized people, people in military group quarters, people in 
+college dormitories, and unrelated 
+individuals under 15 years ol d in the 
+ACS  Persons  ACS  Tot_Population_ACS_ 16_20  
+72 Pov_Univ_ACSMOE _16_20  Population  MOE - Population for whom poverty 
+level is determined (denominator for 
+persons blw pov.)  Margin of Error for Population for 
+whom poverty level is determined  Persons  ACS   
+73 Prs_Blw_Pov_Lev_ACS _16_20  Population  Number of people classified as below 
+the poverty level in the ACS  Number of people classified as below 
+the poverty level given their total 
+family or household income within 
+the last year, family size, a nd family Persons  ACS  Pov_Univ_ACS _16_20  
+ 
+15  VARNUM  NAME  Unit of Measure  LABEL  Definitions  Unit Level  Source  Denominator Note  
+composition in the ACS population  
+74 Prs_Blw_Pov_Lev_ACSMOE _16_20  Population  MOE - Number of people classified as 
+below the poverty level  Margin of Error of Number of people 
+classified as below the poverty level  Persons  ACS   
+75 One_Health_Ins_ACS _16_20  Population  Number of people with one type of 
+health insurance coverage in the ACS  Number of people who have one type 
+of health insurance coverage, 
+including public or private insurance, 
+in the ACS population  Persons  ACS   
+76 One_Health_Ins_ACSMOE _16_20  Population  MOE - Number of people with one type 
+of health insurance coverage  Margin of Error of Number of people 
+who have one type of health insurance 
+coverage  Persons  ACS   
+77 Two_Plus_Health_Ins_ACS _16_20  Population  Number of people with two or more 
+types of health insurance coverage in 
+the ACS  Number of people who have two or 
+more types of health insurance at the 
+same time, in the ACS population  Persons  ACS   
+78 Two_Plus_Health_Ins_ACSMOE _16_20  Population  MOE - Number of people with two or 
+more types of health insurance coverage  Margin of Error of Number of people 
+who have two or more types of health 
+insurance coverage  Persons  ACS   
+79 No_Health_Ins_ACS _16_20  Popu lation  Number of people with no health 
+insurance coverage in the ACS  Number of people who have no health 
+insurance coverage, public or private, 
+in the ACS population  Persons  ACS   
+80 No_Health_Ins_ACSMOE _16_20  Population  MOE - Number of people with no 
+health insurance coverage  Margin of Error of Number of people 
+who have no health insurance 
+coverage  Persons  ACS   
+81 Pop_1yr_Over_ACS _16_20  Population  Number of people 1 year old and over 
+(denominator for Diff HU 1 yr ago) in 
+the ACS  Number of people ages 1 year and 
+over at time of interview in the ACS 
+population  Persons  ACS  Tot_Population_ACS_ 16_20  
+82 Pop_1yr_Over_ACSMOE _16_20  Population  MOE - Number of people 1 year and 
+over Margin of Error for Number of people 
+1 year old and over  Persons  ACS   
+83 Diff_HU_1yr_Ago_ACS _16_20  Population  Different House One Year Ago in the 
+ACS  Number of people who moved from 
+another residence in the U.S. or Puerto Rico within the last year in the 
+ACS population  Persons  ACS  Pop_1yr_Over_ACS _16_20  
+84 Diff_HU_1yr_Ago_ACSMOE _16_20  Population  MOE - Different House One Year Ago 
+(Derived)  Margin of Error of Different house 
+one year ago  Persons  ACS   
+85 ENG_VW_SPAN_ACS _16_20  Household  Spanish - Limited English speaking 
+household (Use Tot ACS Occ HU as denominator) in the ACS  Number of ACS households where a 
+Spanish or Spanish Creole language was assigned as the household 
+language and no one ages 14 years 
+and over speaks English only or Households  ACS  Tot_Occp_Units_ACS_ 16_20  
+ 
+16  VARNUM  NAME  Unit of Measure  LABEL  Definitions  Unit Level  Source  Denominator Note  
+speaks English "very well"  
+86 ENG_VW_SPAN_ACSMOE _16_20  Household  MOE - Spanish - Limited English 
+speaking household (Use Tot ACS Occ 
+HU as denominator)  Margin of Error of Spanish -No one 14 
+and over speaks English only or 
+speaks English "very well"  Households  ACS   
+87 ENG_VW_INDO_EURO_ACS _16_20  Household  INDO EURO - Limited English 
+speaking household (Use Tot ACS Occ 
+HU as denominator) in the ACS  Number of ACS households where an 
+Indo- European language was assigned 
+as the household language and no one 
+ages 14 years and over speaks English 
+only or speaks English "very well"  Households  ACS  Tot_Occp_Units_ACS_ 16_20  
+88 ENG_VW_INDO_EURO_ACSMOE _16_20  Household  MOE - INDO EURO - Limited English 
+speaking household (Use Tot ACS Occ 
+HU as denominator)  Margin of Error of INDO EURO -No 
+one 14 and over speaks English only 
+or speaks English "very well"  Households  ACS   
+89 ENG_VW_API_ACS _16_20  Household  Asian and PI - Limited English 
+speaking household (Use Tot ACS Occ 
+HU as denominator) in the ACS  Number of ACS households where an 
+Asian and Pacific Island language was assigned as the household language 
+and no one ages 14 years and over 
+speaks English only or speaks English 
+"very well"  Households  ACS  Tot_Occp_Units_ACS_ 16_20  
+90 ENG_VW_API_ACSMOE _16_20  Household  MOE - Asian and PI - Limited English 
+speaking household (Use Tot ACS Occ 
+HU as denominator)  Margin of Error of API -No one 14 
+and over speaks English only or 
+speaks English "very well"  Households  ACS   
+91 ENG_VW_OTHER_ACS _16_20  Household  Other - Limited English speaking  
+household (Use Tot ACS Occ HU as denominator) in the ACS  Number of ACS households where a 
+language other than English, Spanish, Indo- Euro, or API was assigned as the 
+household language and no one ages 14 years and over speaks English only 
+or speaks Englis h "very well"  Households  ACS  Tot_Occp_Units_ACS_ 16_20  
+92 ENG_VW_OTHER_ACSMOE _16_20  Household  MOE - Other - Limited English 
+speaking household (Use Tot ACS Occ 
+HU as denominator)  Margin of Error of OTH -No one 14 
+and over speaks English only or 
+speaks English "very well"  Households  ACS   
+93 ENG_VW_ACS _16_20  Household  Limited English speaking household 
+(Use Tot ACS Occ HU as denominator) in the ACS Number of ACS households where no 
+one ages 14 years and over speaks English only or speaks English "very 
+well"  Households  ACS  Tot_Occp_Units_ACS_ 16_20  
+94 ENG_VW_ACSMOE _16_20  Household  MOE - Limited English speaking 
+household (Use Tot ACS Occ HU as 
+denominator)  Margin of Error of No one 14 and 
+over speaks English only or speaks 
+English "very well"  Households  ACS   
+ 
+17  VARNUM  NAME  Unit of Measure  LABEL  Definitions  Unit Level  Source  Denominator Note  
+95 Rel_Family_HHD_ACS _16_20  Household  Related family households in the ACS  Number of ACS households where at 
+least 2 members are related by birth, 
+marriage, or adoption; unmarried same -sex couple households with no 
+relatives of  the householder present 
+are not included  Households  ACS  Tot_Occp_Units_ACS_ 16_20  
+96 Rel_Family_HHD_ACSMOE _16_20  Household  MOE - Related family households  Margin of Error of Related family 
+households  Households  ACS   
+97 MrdCple_Fmly_HHD_ACS _16_20  Household  Married -couple families in the ACS  Number of ACS households in which 
+the householder and his or her spouse are listed as members of the same household; does include same -sex 
+married couples  Households  ACS  Tot_Occp_Units _ACS_ 16_20  
+98 MrdCple_Fmly_HHD_ACSMOE _16_20  Household  MOE - Married -couple families  Margin of Error of Married -Couple 
+Family  Households  ACS   
+99 Not_MrdCple_HHD_ACS _16_20  Household  Households with no Married Couple 
+present in the ACS  Number of ACS households with no 
+spousal relationship present  Households  ACS  Tot_Occp_Units_ACS_ 16_20  
+100 Not_MrdCple_HHD_ACSMOE _16_20  Household  MOE - Households with no Married 
+Couple present  Margin of Error of Number of ACS 
+households with no spousal 
+relationship present  Households  ACS   
+101 Female_No_ SP_ACS _16_20  Household  Households with a female householder, 
+no spouse  present in the ACS  Number of ACS households with a 
+female householder and no spouse of 
+householder present  Households  ACS  Tot_Occp_Un its_ACS_ 16_20  
+102 Female_No_ SP_ACSMOE _16_20  Household  MOE - Households with a female 
+householder, no spouse  present  Margin of Error of Female 
+householder, no spouse present  Households  ACS   
+103 NonFamily_HHD_ACS _16_20  Household  Nonfamily households: Unrelated 
+household in the ACS  Number of ACS households where a 
+householder lives alone or with nonrelatives only; includes unmarried same -sex couples where no relatives 
+of the householder are present  Households  ACS  Tot_Occp_Units_ACS_ 16_20  
+104 NonFamily_HHD_ACSMOE _16_20  Household  MOE - Nonfamily households: 
+Unrelated household  Margin of Error of Nonfamily 
+household: Unrelated households  Households  ACS   
+105 Sngl_Prns_HHD_ACS _16_20  Household  Single Person households in the ACS  Number of ACS households where a 
+householder lives alone  Households  ACS  Tot_Occp_Units_ACS_ 16_20  
+106 Sngl_Prns_HHD_ACSMOE _16_20  Household  MOE - Single Person households  Margin of Error of Single person 
+householder living alone  Households  ACS   
+107 HHD_PPL_Und_18_ACS _16_20  Household  Households with one ore more people 
+under 18 years old in the ACS  Number of ACS households where 
+one or more people are ages 18 years 
+or under  Households  ACS  Tot_Occp_Units_ACS_ 16_20  
+ 
+18  VARNUM  NAME  Unit of Measure  LABEL  Definitions  Unit Level  Source  Denominator Note  
+108 HHD_PPL_Und_18_ACSMOE _16_20  Household  MOE - Households with one ore more 
+people under 18 years old  Margin of Error of Households with 
+one or more people under 18 years  Households  ACS   
+109 Tot_Prns_in_HHD_ACS _16_20  Household  Total Persons in households in the ACS  All persons (household population) in 
+ACS occupied housing unit. This is 
+the numerator to calculate the average 
+household size.  Persons  ACS  Tot_Occp_Units_ACS_ 16_20  
+110 Tot_Prns_in_HHD_ACSMOE _16_20  Household  MOE - Total Persons in households  Margin of Error of Total Persons in 
+households  Persons  ACS   
+111 Rel_Child_Under_6_ACS _16_20  Household  Number of families with related 
+children under 6 years old in the ACS  Number of ACS families with related 
+children under 6 years old  Families  ACS  Rel_Family_HHD_ACS _16_2
+0 
+112 Rel_Child_Under_6_ACSMOE _16_20  Household  MOE - Number of families with related 
+children under 6 years old  Margin of Error of Number of 
+families with related children under 6 
+years old  Families  ACS   
+113 HHD_Moved_in_ACS _16_20  Household  Number of households, householder 
+moved in 2020 or later in the ACS  Number of ACS households where the 
+householder moved into the current 
+unit in the year 2020  or later  Households  ACS  Tot_Occp_Units_ACS_ 16_20  
+114 HHD_Moved_in_ACSMOE _16_20  Household  MOE - Number of households, 
+householder moved in 2020 or later  Margin of Error of Number of 
+households where the householder moved into the current unit in the year 
+2020  or later  Households  ACS   
+115 PUB_ASST_INC_ACS _16_20  Household  With Public Assistance Income in the 
+ACS  Number of ACS households that 
+receive public assistance income (general assistance and Temporary 
+Assistance to Needy Families)  Households  ACS  Tot_Occp_Units_ACS_ 16_20  
+116 PUB_ASST_INC_ACSMOE _16_20  Household  MOE - With Public Assistance Income  Margin of Error of With Public 
+Assistance Income  Households  ACS   
+117 Med_HHD_Inc_ BG_ ACS _16_20  Household  Median Household Income – Block 
+Group  level in the ACS  Median ACS household income for 
+the block group  Households  ACS   
+118 Med_HHD_Inc_ BG_ ACSMOE _16_20  Household  MOE - Median Household Income – 
+Block Group  level  Margin of Error of Med household 
+income for the block group  Households  ACS   
+119 Med_HHD_Inc_ TR_ACS _16_20  Household  Median Household Income – Tract  level 
+in the ACS  Median ACS household income for 
+the tract Households  ACS   
+120 Med_HHD_Inc_ TR_ACSMOE _16_20  Household  MOE - Median Household Income – 
+Tract  level  Margin of Error of Med household 
+income for the tract Households  ACS   
+121 Aggregate_HH_INC_ACS _16_20  Household  Aggregate Household Income in the 
+ACS  Sum of all incomes in the household  Households  ACS   
+122 Aggregate_HH_INC_ACSMOE _16_20  Household  MOE - Aggregate Household Income  Margin of Error for Aggregate 
+household income  Households  ACS   
+ 
+19  VARNUM  NAME  Unit of Measure  LABEL  Definitions  Unit Level  Source  Denominator Note  
+123 Tot_Housing_Units_CEN_ 2020  Housing Unit  Total Housing Units in the 2020  Census  Number of 2020  Census living 
+quarters in which the occupant(s) live 
+separately from any other individuals 
+in the building and have direct access  Housing 
+Units 2020  Census   
+124 Tot_Housing_Units_ACS _16_20  Housing Unit  Total Housing Units in the ACS  Number of ACS living quarters in 
+which the occupant(s) live separately from any other individuals in the 
+building and have direct access  Housing 
+Units  ACS   
+125 Tot_Housing_Units_ACSMOE _16_20  Housing Unit  MOE - Total Housing Units  Margin of Error for Total Housing 
+Units  Housing 
+Units    
+126 Tot_Occp_Units_CEN_ 2020  Housing Unit  Total Occupied Housing Units in the 
+2020 Census  Number of 2020  Census housing units 
+classified as usual place of residence 
+of the individual or group living in it  Housing 
+Units  2020  Census  Tot_Housing_Units_ 
+CEN_ 2020  
+127 Tot_Occp_Units_ACS _16_20  Housing Unit  Total Occupied Housing Units in the 
+ACS  Number of ACS housing units 
+classified as usual place of residence 
+of the individual or group living in it  Housing 
+Units  ACS  Tot_Housing_Units_ 
+ACS _16_20  
+128 Tot_Occp_Units_ACSMOE _16_20  Housing Unit  MOE - Total Occupied Housing Units  Margin of Error for Total Occupied 
+Housing Units  Housing 
+Units  ACS   
+129 Tot_Vacant_Units_CEN_ 2020  Housing Unit  Total vacant Housing Units in the 2020  
+Census  Number of 2020  Census housing units 
+with no regular occupants on Census Day; housing units with its usual 
+occupants temporarily away (such as 
+on vacation, a business trip, or in the hospital) are not considered vacant, but housing units temporarily occupied on Census Day by people who have a usual residence elsewhere 
+are considered vacant  Housing 
+Units  2020  Census  Tot_Housing_Units_ 
+CEN_ 2020  
+130 Tot_Vacant_Units_ACS _16_20  Housing Unit  Total Vacant Housing Units in the ACS  Number of ACS housing units where 
+no one is living regularly at the time of interview; units occupied at the time of interview entirely by persons who are staying two months or less and who have a more permanent 
+residence elsewhere are classified as 
+vacant  Housing 
+Units  ACS  Tot_Housing_Units_ 
+ACS _16_20  
+131 Tot_Vacant_Units_ACSMOE _16_20  Housing Unit  MOE - Total Vacant Housing Units  Margin of Error for Total vacant 
+housing units  Housing 
+Units  ACS   
+132 Renter_Occp_HU_ACS _16_20  Housing Unit  Number of renter  occupied units in the 
+ACS  Number of ACS occupied housing 
+units that are not owner occupied, 
+whether they are rented or occupied 
+without payment of rent  Housing 
+Units  ACS  Tot_Occp_Units_ACS_ 16_20  
+ 
+20  VARNUM  NAME  Unit of Measure  LABEL  Definitions  Unit Level  Source  Denominator Note  
+133 Renter_Occp_HU_ACSMOE _16_20  Housing Unit  MOE - Number of renter occupied units  Margin of Error for Number of renter 
+occupied units  Housing 
+Units  ACS   
+134 Owner_Occp_HU_ACS _16_20  Housing Unit  Number of owner occupied units in the 
+ACS  Number of ACS housing units where 
+owner or co -owner lives in it Housing 
+Units  ACS  Tot_Occp_Units_ACS_ 16_20  
+135 Owner_Occp_HU_ACSMOE _16_20  Housing Unit  MOE - Number of owner occupied units  Margin of Error for Number of owner 
+occupied units  Housing 
+Units  ACS   
+136 Single_Unit_ACS _16_20  Housing Unit  Housing units in structures containing 
+only 1 housing unit in the ACS  Number of ACS housing units in 
+which the structure contains only that 
+single unit  Housing 
+Units  ACS  Tot_Housing_Units_ 
+ACS _16_20  
+137 Single_Unit_ACSMOE _16_20  Housing Unit  MOE - Housing units in structures 
+containing only 1 housing unit  Margin of Error for Number of units 
+in structures containing only 1 
+housing unit  Housing 
+Units  ACS   
+138 MLT_U2_9_STRC_ACS _16_20  Housing Unit  Housing units in structures containing 
+two to nine housing unit s in the ACS  Number of ACS housing units in 
+which the structure contains two or 
+more housing units  Housing 
+Units  ACS  Tot_Housing_Units_ 
+ACS _16_20  
+139 MLT_U2_9_STRC_ACSMOE _16_20  Housing Unit  MOE - Housing units in structures 
+containing two to nine housing units  Margin of Error for Number of units 
+in structures containing two or more 
+housing units  Housing 
+Units  ACS   
+140 MLT_U10p_ACS _16_20  Housing Unit  Housing units in structures containing 
+10 or more housing units in the ACS  Number of ACS housing units in 
+which the structure contains 10 or 
+more housing units  Housing 
+Units  ACS  Tot_Housing_Units_ 
+ACS _16_20  
+141 MLT_U10p_ACSMOE _16_20  Housing Unit  MOE - Housing units in structures 
+containing 10 or more housing units  Margin of Error for Number o f units 
+in structures containing 10 or more 
+housing units  Housing 
+Units  ACS   
+142 Mobile_Homes_ACS _16_20  Housing Unit  Mobile Homes in the ACS  Number of ACS housing units that are 
+considered mobile homes  Housing 
+Units  ACS  Tot_Housing_Units_ 
+ACS _16_20  
+143 Mobile_Homes_ACSMOE _16_20  Housing Unit  MOE - Mobile Homes  Margin of Error for Mobile Homes  Housing 
+Units  ACS   
+144 Crowd_Occp_U_ACS _16_20  Housing Unit  Occupied Units with more than 1.01 
+persons per room in the ACS  Number of ACS occupied housing 
+units with more than 1.01 persons per 
+room  Housing 
+Units  ACS  Tot_Occp_Units_ACS_ 16_20  
+145 Crowd_Occp_U_ACSMOE _16_20  Housing Unit  MOE - Occupied Units with more than 
+1.01 persons per room  Margin of Error for Occupied units 
+with more than 1.01 persons per room  Housing 
+Units  ACS   
+146 Occp_U_NO_PH_SRVC_ACS _16_20  Housing Unit  Number of housing units without 
+telephone service in the ACS  Number of ACS housing units without 
+a working telephone and available 
+service  Housing 
+Units  ACS  Tot_Occp_Units_ACS_ 16_20  
+147 Occp_U_NO_PH_SRVC_ACSMOE _16_20  Housing Unit  MOE - Number of housing units 
+without telephone service  Margin of Error for Number of units 
+without a telephone  Housing 
+Units  ACS   
+148 No_Plumb_ACS _16_20  Housing Unit  Housing units without complete 
+plumbing facilities in the ACS  Number of ACS housing units lacking 
+complete plumbing facilities  Housing 
+Units  ACS  Tot_Housing_Units_ 
+ACS _16_20  
+ 
+21  VARNUM  NAME  Unit of Measure  LABEL  Definitions  Unit Level  Source  Denominator Note  
+149 No_Plumb_ACSMOE _16_20  Housing Unit  MOE - Housing units without complete 
+plumbing facilities  Margin of Error for housing units 
+lacking complete plumbing facilities  Housing 
+Units  ACS   
+150 Recent_Built_HU_ACS _16_20  Housing Unit  Housing Units built in 2020  or later in 
+the ACS  Number of both occupied and vacant 
+ACS housing units whose building 
+was constructed in 2020  or later  Housing 
+Units  ACS  Tot_Housing_Units_ 
+ACS _16_20  
+151 Recent_Built_HU_ACSMOE _16_20  Housing Unit  MOE - Housing Units built in 2020  or 
+later Margin of Error for HUs built 2020  or 
+later Housing 
+Units  ACS   
+152 Med_House_Value_ BG_ ACS _16_20  Housing Unit  Median House Value – Block Group  
+level in the ACS  Median of ACS respondents' house 
+value estimates for the block group  Housing 
+Units  ACS   
+153 Med_House_Value_ BG_ ACSMOE _16_20  Housing Unit  MOE - Median House Value – Block 
+Group  level  Margin of Error for Med House value 
+for the block group  Housing 
+Units  ACS   
+154 Med_House_Value_ TR_ACS _16_20  Housing Unit  Median House Value - Tract level in the 
+ACS  Median of ACS respondents' house 
+value estimates for the tract  Housing 
+Units  ACS   
+155 Med_House_Value_ TR_ACSMOE _16_20  Housing Unit  MOE - Median House Value - Tract 
+level  Margin of Error for Med House value 
+for the tract  Housing 
+Units  ACS   
+156 Aggr_House_Value_ACS _16_20  Housing Unit  Aggregate housing unit value (dollars) 
+in the ACS Sum of all value estimates for owner -
+occupied ACS housing units in an 
+area Housing 
+Units  ACS   
+157 Aggr_House_Value_ACSMOE _16_20  Housing Unit  MOE - Aggregate housing unit value 
+(dollars)  Margin of Error for  Aggregate value 
+in dollars  Housing 
+Units  ACS   
+158 pct_Males_ACS _16_20  Calculated 
+Percentages  Percentage calculated by dividing 
+Males_ACS _16_20 by 
+Tot_Population_ACS _16_20  The percentage of the ACS population 
+that is male  Persons  ACS   
+159 pct_Males_ACSMOE _16_20  Calculated 
+Percentages  MOE - Percentage calculated by 
+dividing Males_ACS _16_20 by 
+Tot_Population_ACS _16_20  Margin of error of the percentage of 
+the ACS population that is male  Persons  ACS   
+160 pct_Females_ACS _16_20  Calculated 
+Percentages  Percentage calculated by dividing 
+Females_ACS _16_20  by 
+Tot_Population_ACS _16_20  The percentage of the ACS population 
+that is female  Persons  ACS   
+161 pct_Females_ACSMOE _16_20  Calculated 
+Percentages  MOE - Percentage calculated by 
+dividing Females_ACS _16_20 by 
+Tot_Population_ACS _16_20  Margin of error of the percentage of 
+the ACS population that is female  Persons  ACS   
+162 pct_Pop_under_5_ACS _16_20  Calculated 
+Percentages  Percentage calculated by dividing 
+Pop_under_5_ACS_16_20 by 
+Tot_Population_ACS _16_20  The percentage of the ACS population 
+that is under five years old  Persons  ACS   
+163 pct_Pop_under_5_ACSMOE _16_20  Calculated 
+Percentages  MOE - Percentage calculated by 
+dividing Pop_under_5_ACS _16_20 by 
+Tot_Population_ACS _16_20  Margin of error of the percentage of 
+the ACS population that is under five 
+years old  Persons  ACS   
+164 pct_Pop_5_17_ACS _16_20  Calculated 
+Percentages  Percentage calculated by dividing 
+Pop_5_17_ACS_16_20 by 
+Tot_Population_ACS _16_20  The percentage of the ACS population 
+that is between 5 and 17 years old  Persons  ACS   
+ 
+22  VARNUM  NAME  Unit of Measure  LABEL  Definitions  Unit Level  Source  Denominator Note  
+165 pct_Pop_5_17_ACSMOE _16_20  Calculated 
+Percentages  MOE - Percentage calculated by 
+dividing Pop_5_17_ACS _16_20 by 
+Tot_Population_ACS _16_20  Margin of error of the percentage of 
+the ACS population that is between 5 
+and 17 years old  Persons  ACS   
+166 pct_Pop_18_24_ACS _16_20  Calculated 
+Percentages  Percentage calculated by dividing 
+Pop_18_24_ACS_16_20  by 
+Tot_Population_ACS _16_20  The percentage of the ACS population 
+that is between 18 and 24 years old  Persons  ACS   
+167 pct_Pop_18_24_ACSMOE _16_20  Calculated 
+Percentages  MOE - Percentage calculated by 
+dividing Pop_18_24_ACS _16_20 by 
+Tot_Population_ACS _16_20  Margin of error of the percentage of 
+the ACS population that is between 18 
+and 24 years old  Persons  ACS   
+168 pct_Pop_25_44_ACS _16_20  Calculated 
+Percentages  Percentage calculated by dividing 
+Pop_25_44_ACS_16_20  by 
+Tot_Population_ACS _16_20  The percentage of the ACS population 
+that is between 25 and 44 years old Persons  ACS   
+169 pct_Pop_25_44_ACSMOE _16_20  Calculated 
+Percentages  MOE - Percentage calculated by 
+dividing Pop_25_44_ACS _16_20 by 
+Tot_Population_ACS _16_20  Margin of error of the percentage of 
+the ACS population that is between 25 
+and 44 years old  Persons  ACS   
+170 pct_Pop_45_64_ACS _16_20  Calculated 
+Percentages  Percentage calculated by dividing 
+Pop_45_64_ACS_16_20  by 
+Tot_Population_ACS _16_20  The percentage of the ACS population 
+that is between 45 and 64 years old Persons  ACS   
+171 pct_Pop_45_64_ACSMOE _16_20  Calculate d 
+Percentages  MOE - Percentage calculated by 
+dividing Pop_45_64_ACS _16_20 by 
+Tot_Population_ACS _16_20  Margin of error of the percentage of 
+the ACS population that is between 45 
+and 64 years old  Persons  ACS   
+172 pct_Pop_65plus_ACS _16_20  Calculated 
+Percentages  Percentage calculated by dividing 
+Pop_65plus_ACS_16_20 by 
+Tot_Population_ACS _16_20  The percentage of the ACS population 
+that is 65 years old or over  Persons  ACS   
+173 pct_Pop_65plus_ACSMOE _16_20  Calculated 
+Percentages  MOE - Percentage calculated by 
+dividing Pop_65plus_ACS _16_20 by 
+Tot_Population_ACS _16_20  Margin of error of the percentage of 
+the ACS population that is 65 years 
+old or over  Persons  ACS   
+174 pct_Tot_GQ_CEN_ 2020  Calculated 
+Percentages  Percentage calculated by di viding 
+Tot_GQ_CEN_ 2020 by 
+Tot_Population_CEN_2020  The percentage of the 2020  Census 
+population living or staying in a group 
+living arrangement owned by an entity 
+providing housing to residents, who 
+are usually unrelated, as of April 1, 
+2020  Persons  2020  Census   
+175 pct_Inst_GQ_CEN_ 2020  Calculated 
+Percentages  Percentage calculated  by dividing 
+Inst_GQ_CEN_ 2020 by 
+Tot_Population_CEN_2020  The percentage of the 2020  Census 
+population who live in group quarters and are primarily ineligible, unable, or unlikely to participate in labor force 
+while residents. Institutional group 
+quarters i nclude correctional facilities 
+for adults, juvenile facilities, nursing facilities, and other institutional 
+facilities.  Persons  2020  Census   
+ 
+23  VARNUM  NAME  Unit of Measure  LABEL  Definitions  Unit Level  Source  Denominator Note  
+176 pct_Non_Inst_GQ_CEN_ 2020  Calculated 
+Percentages  Percentage calculated by dividing 
+Non_Inst_GQ_CEN_2020 by 
+Tot_Population_CEN_2020  The percentage of the 2020  Census 
+population who live in group quarters 
+and are primarily eligible, able, or likely to participate in labor force 
+while residents. Noninstitutional 
+group quarters include colle ge/university student housing, 
+military quarters, and other 
+noninstitutional facilities.  Persons  2020  Census   
+177 pct_Hispanic_CEN_ 2020  Calculated 
+Percentages  Percentage calculated by dividing 
+Hispanic_CEN_2020 by 
+Tot_Population_CEN_2020  The percentage of the 2020  Census 
+total population that identify as 
+"Mexican", "Puerto Rican", "Cuban", 
+or "another Hispanic, Latino, or 
+Spanish origin"  Persons  2020  Census   
+178 pct_Hispanic_ACS _16_20  Calculated 
+Percentages  Percentage calculated by dividing 
+Hispanic_ACS_16_20 by 
+Tot_Population_ACS_16_20  The percentage of the ACS population 
+that identify as "Mexican", "Puerto Rican", "Cuban", or "another 
+Hispanic, Latino, or Spanish origin"  Persons  ACS   
+179 pct_Hispanic_ACSMOE _16_20  Calculated 
+Percentages  MOE - Percentage calculated by 
+dividing Hispanic_ACS _16_20 by 
+Tot_Population_ACS_16_20  Margin of error of the percentage of 
+the ACS population that identify as "Mexican", "Puerto Rican", "Cuban", or "another Hispanic, Latino, or 
+Spanish origin"  Persons  ACS   
+180 pct_NH_Whi te_alone_CEN_ 2020  Calculated 
+Percentages  Percentage calculated by dividing 
+NH_White_alone_CEN_2020  by 
+Tot_Population_CEN_2020  The percentage of the 2020  Census 
+total population that indicate no 
+Hispanic origin and their only race as 
+"White" or report entri es such as Irish, 
+German, Italian, Lebanese, Arab, 
+Moroccan, or Caucasian  Persons  2020  Census   
+181 pct_NH_White_alone_ACS _16_20  Calculated 
+Percentages  Percentage calculated by dividing 
+NH_White_alone_ACS_16_20 by 
+Tot_Population_ACS_16_20  The percentage of the ACS population 
+that indicate no Hispanic origin and their only race as "White" or report 
+entries such as Irish, German, Italian, 
+Lebanese, Arab, Moroccan, or 
+Caucasian  Persons  ACS   
+182 pct_NH_White_alone_ACSMOE _16_20  Calculated 
+Percentages  MOE - Percentage calculated by 
+dividing NH_White_alone_ACS _16_20 
+by Tot_Population_ACS _16_20  Margin of error of the percentage of 
+the ACS population that indicate no Hispanic origin and their only race as "White" or report entries such as Irish, 
+German, Italian, Lebanese, Arab, 
+Moroccan, or Caucasian  Persons  ACS   
+ 
+24  VARNUM  NAME  Unit of Measure  LABEL  Definitions  Unit Level  Source  Denominator Note  
+183 pct_NH_Blk_alone_CEN_ 2020  Calculated 
+Percentages  Percentage calculated by dividing 
+NH_Blk_alone_CEN_2020 by 
+Tot_Population_CEN_2020  The percentage of the 2020  Census 
+total population that indicate no 
+Hispanic origin and their only race as "Black, African Am., or Negro" or 
+report entries such as African 
+American, Kenyan, Nigerian, or 
+Haitian  Persons  2020  Census   
+184 pct_NH_Blk_alone_ACS _16_20  Calculated 
+Percentages  Percentage calculated by dividing 
+NH_Blk_alone_ACS_16_20 by 
+Tot_Population_ACS_16_20  The percentage of the ACS population 
+that indicate no Hispanic origin and their only race as "Black, African Am., or Negro" or report entries such 
+as African American, Ken yan, 
+Nigerian, or Haitian  Persons  ACS   
+185 pct_NH_Blk_alone_ACSMOE _16_20  Calculated 
+Percentages  MOE - Percentage calculated by 
+dividing NH_Blk_alone_ACS _16_20 
+by Tot_Population_ACS _16_20  Margin of error of the percentage of 
+the ACS population that indicate no 
+Hispanic origin and their only race as "Black, African Am., or Negro" or report entries such as African 
+American, Kenyan, Nigerian, or 
+Haitian  Persons  ACS   
+186 pct_NH_AIAN_alone_CEN_ 2020  Calculated 
+Percentages  Percentage calculated by dividing 
+NH_AIAN_alone_CEN_ 2020  by 
+Tot_Population_CEN_2020  The percentage of the 2020  Census 
+total population that indicate no 
+Hispanic origin and their only race as "American Indian or Alaska Native" 
+or report entries such as Navajo, 
+Blackfeet, Inupiat, Y up'ik, or 
+Central/South American Indian 
+groups  Persons  2020  Census   
+187 pct_NH_AIAN_alone_ACS _16_20  Calculated 
+Percentages  Percentage calculated by dividing 
+NH_AIAN_alone_ACS _16_20 by 
+Tot_Population_ACS_16_20  The percentage of the ACS population 
+that indicate no Hispanic origin and their only race as "American Indian or 
+Alaska Native" or report entries such 
+as Navajo, Blackfeet, Inupiat, Yup'ik, or Central/South American Indian 
+groups  Persons  ACS   
+188 pct_NH_A IAN_alone_ACSMOE _16_20  Calculated 
+Percentages  MOE - Percentage calculated by 
+dividing NH_AIAN_alone_ACS _16_20 
+by Tot_Population_ACS _16_20  Margin of error of the percentage of 
+the ACS population that indicate no Hispanic origin and their only race as 
+"Ameri can Indian or Alaska Native" 
+or report entries such as Navajo, 
+Blackfeet, Inupiat, Yup'ik, or 
+Central/South American Indian Persons  ACS   
+ 
+25  VARNUM  NAME  Unit of Measure  LABEL  Definitions  Unit Level  Source  Denominator Note  
+groups  
+189 pct_NH_Asian_alone_CEN_ 2020  Calculated 
+Percentages  Percentage calculated by dividing 
+NH_Asian_alone_CEN_2020 by 
+Tot_Population_CEN_2020  The percentage of the 2020  Census 
+total population that indicate no 
+Hispanic origin and their only race as "Asian Indian", "Chinese", "Filipino", "Korean", "Japanese", "Vietnamese", 
+or "Other Asian"  Persons  2020  Census   
+190 pct_NH_Asian_alone_ACS _16_20  Calculated 
+Percentages  Perce ntage calculated by dividing 
+NH_Asian_alone_ACS_16_20 by 
+Tot_Population_ACS_16_20  The percentage of the ACS population 
+that indicate no Hispanic origin and their only race as "Asian Indian", "Chinese", "Filipino", "Korean", "Japanese", "Vietnamese", or "Ot her 
+Asian"  Persons  ACS   
+191 pct_NH_Asian_alone_ACSMOE _16_20  Calculated 
+Percentages  MOE - Percentage calculated by 
+dividing NH_Asian_alone_ACS _16_20 
+by Tot_Population_ACS _16_20  Margin of error of the percentage of 
+the ACS population that indicate no Hispanic origin and their only race as "Asian Indian", "Chinese", "Filipino", "Korean", "Japanese", "Vietnamese", 
+or "Other Asian"  Persons  ACS   
+192 pct_NH_NHOPI_alone_CEN_ 2020  Calculated 
+Percentages  Percentage calculated by dividing 
+NH_NHOPI_alone_CEN_ 2020 by 
+Tot_Population_CEN_2020  The percentage of the 2020  Census 
+total population that indicate no 
+Hispanic origin and their only race as 
+"Native Hawaiian", "Guamanian or Chamorro", "Samoan", or "Other 
+Pacific Islander"  Persons  2020  Census  
+193 pct_NH_NHOPI_alone_ACS _16_20  Calculated 
+Percentages  Percentage calculated by dividing 
+NH_NHOPI_alone_ACS _16_20 by 
+Tot_Population_ACS_16_20  The percentage of the ACS population 
+that indicate no Hispanic origin and 
+their only race as "Native Hawaii an", 
+"Guamanian or Chamorro", 
+"Samoan", or "Other Pacific Islander"  Persons  ACS   
+194 pct_NH_NHOPI_alone_ACSMOE _16_20  Calculated 
+Percentages  MOE - Percentage calculated by 
+dividing 
+NH_NHOPI_alone_ACS _16_20 by 
+Tot_Population_ACS_16_20  Margin of error of the percentage of 
+the ACS population that indicate no Hispanic origin and their only race as "Native Hawaiian", "Guamanian or 
+Chamorro", "Samoan", or "Other 
+Pacific Islander"  Persons  ACS   
+ 
+26  VARNUM  NAME  Unit of Measure  LABEL  Definitions  Unit Level  Source  Denominator Note  
+195 pct_NH_SOR_alone_CEN_ 2020  Calculated 
+Percentages  Percentage calculated by dividing 
+NH_SOR_alone_CEN_2020 by 
+Tot_Population_CEN_2020  The percentage of the 2020  Census 
+total population that indicate no 
+Hispanic origin and their race as other than "White", "Hispanic", "Black or 
+African American", "American Indian 
+or Alaska Native", "Asian", and "Native Hawaiian or Other Pacific 
+Islander"  Persons  2020  Census   
+196 pct_NH_SOR_alone_ACS _16_20  Calculated 
+Percentages  Percentage calculated by dividing 
+NH_SOR_alone_ACS_16_20 by 
+Tot_Population_ACS_16_20  The percentage of the ACS population 
+that indicate no Hispanic origin and their race as other than "White", 
+"Hispanic", "Black or African 
+American", "American Indian or Alaska Native", "Asian", and "Native 
+Hawaiian or Other Pac ific Islander"  Persons  ACS   
+197 pct_NH_SOR_alone_ACSMOE _16_20  Calculated 
+Percentages  MOE - Percentage calculated by 
+dividing NH_SOR_alone_ACS _16_20 
+by Tot_Population_ACS _16_20  Margin of error of the percentage of 
+the ACS population that indicate no Hispanic origin and their race as other 
+than "White", "Hispanic", "Black or 
+African American", "American Indian or Alaska Native", "Asian", and "Native Hawaiian or Other Pacific 
+Islander"  Persons  ACS   
+198 pct_NH_Multi_Races_CEN_2020  Calculated 
+Percentages  Percentage calculated by dividing 
+NH_ Multi_Races _CEN_ 2020 by 
+Tot_Population_CEN_2020  The percentage of the 2020  Census 
+total population that indicate no Hispanic origin and their race as at least two of  "White", "Black or 
+African American", "American Indian or Alaska Native", "Asian", "Native Hawaiian or Other Pacific Islander", 
+or “Some Other Race”  Persons  2020  Census  
+199 pct_NH_Multi_Races_ACS_16_20  Calculated 
+Percentages  Percentage calculated by dividing 
+NH_ Multi_Races _ACS _16_20 by 
+Tot_Population_ACS_16_20  The percentage of the ACS population 
+that indicate no Hispanic origin and their race as at least two of  "White",  
+"Black or African American", "American Indian or Alaska Native", "Asian", "Native Hawaiian or Other 
+Pacific Islander", or “Some Other 
+Race”  Persons  ACS   
+ 
+27  VARNUM  NAME  Unit of Measure  LABEL  Definitions  Unit Level  Source  Denominator Note  
+200 pct_NH_Multi_Races_ACSMOE_16_20  Calculated 
+Percentages  MOE - Percentage calculated by 
+dividing NH_Multi_Races _ACS _16_20 
+by Tot_Population_ACS _16_20  Margin of error of the percentage of 
+the ACS population that indicate no 
+Hispanic origin and their race as at least two of  "White", "Black or 
+African American", "American Indian or Alaska Native", "Asian", "Native 
+Hawaiian or Other Pacific Islander", 
+or “Some Other Race”  Persons  ACS   
+201 pct_Pop_5yrs_Over_ACS _16_20  Calculated 
+Percentages  Percentage calculated by dividing 
+Pop_5yrs_Over_ACS_16_20 by 
+Tot_Population_ACS _16_20  The percentage of the ACS population 
+who are ages 5 years and over at time 
+of interview  Persons  ACS   
+202 pct_Pop_5yrs_Over_ACSMOE _16_20  Calculated 
+Percentages  MOE - Percentage calculated by 
+dividing Pop_5yrs_Over_ACS_16_20 
+by Tot_Population_ACS _16_20  Margin of error of the percentage of 
+the ACS population who are ages 5 
+years and over at time of interview  Persons  ACS   
+203 pct_Othr_Lang_ACS _16_20  Calculated 
+Percentages  Percentage calculated by dividing 
+Othr_Lang_ACS_16_20 by 
+Pop_5yrs_Over_ACS _16_20  The percentage of the ACS population 
+aged 5 years and over that speaks a 
+language other than English at home  Persons  ACS   
+204 pct_Othr_Lang_ACSMOE _16_20  Calculated 
+Percentages  MOE - Percentage calcul ated by 
+dividing Othr_Lang_ACS _16_20 by 
+Pop_5yrs_Over_ACS_16_20  Margin of error of the percentage of 
+the ACS population aged 5 years and over that speaks a language other than 
+English at home  Persons  ACS   
+205 pct_Pop_25yrs_Over_ACS _16_20  Calculated 
+Percentages  Percentage calculated by dividing 
+Pop_25yrs_Over_ACS_16_20  by 
+Tot_Population_ACS _16_20  The percentage of the ACS population 
+who are ages 25 years and over at 
+time of interview  Persons  ACS   
+206 pct_Pop_25yrs_Over_ACSMOE _16_20  Calculated 
+Percentages  MOE - Percentage calculated by 
+dividing Pop_25yrs_Over_ACS _16_20 
+by Tot_Population_ACS _16_20  Margin of error of the percentage of 
+the ACS population who are ages 25 
+years and over at time of interview  Persons  ACS   
+207 pct_Not_HS_Grad_ACS _16_20  Calculated 
+Percentages  Percentage calculated by dividing 
+Not_HS_Grad_ACS_16_20 by 
+Pop_25yrs_Over_ACS_16_20  The percentage of the ACS population 
+aged 25 years and over that are not high school graduates and have not 
+received a diploma or the equivalent  Persons  ACS   
+208 pct_Not_HS_Grad_ACSMOE _16_20  Calculated 
+Percentages  MOE - Percentage calculated by 
+dividing Not_HS_Grad_ACS _16_20 by 
+Pop_25yrs_Over_ACS_16_20  Margin of error of the percentage of 
+the ACS population aged 25 years and over that are not high school 
+graduates  Persons  ACS   
+209 pct_Educ_Grade6Less_ACS_16_20  Calculated 
+Percentages  Percentage calculated by dividing 
+Educ_Grade6orLess _ACS _16_20 by 
+Pop_25yrs_Over_ACS_16_20  The percentage of the ACS population 
+aged 25 years and over that have a highest level of education of Grade 6 
+or less  Persons  ACS   
+210 Pct_Educ_Grade6Less_ACSMOE_16_20  Calculated 
+Percentages  MOE - Percentage calculated by 
+dividing 
+Educ_Grade6orLess _ACS _16_20  by Margin of error of the percentage of 
+the ACS population aged 25 years and 
+over that have a highest level of Persons  ACS   
+ 
+28  VARNUM  NAME  Unit of Measure  LABEL  Definitions  Unit Level  Source  Denominator Note  
+Pop_25yrs_Over_ACS _16_20  education of Grade 6 or less  
+211 pct_C ollege_ACS _16_20  Calculated 
+Percentages  Percentage calculated by dividing 
+College_ACS_16_20 by 
+Pop_25yrs_Over_ACS _16_20  The percentage of the ACS population 
+aged 25 years and over that have a 
+college degree or higher  Persons  ACS   
+212 pct_College_ACSMOE _16_20  Calculated 
+Percentages  MOE - Percentage calculated by 
+dividing College_ACS _16_20  by 
+Pop_25yrs_Over_ACS_16_20  Margin of error of the percentage of 
+the ACS population aged 25 years and 
+over that have a college degree or 
+higher  Person s ACS   
+213 pct_Pov_Univ_ACS _16_20  Calculated 
+Percentages  Percentage calculated by dividing 
+Pov_Univ_ACS_16_20 by 
+Tot_Population_ACS_16_20  The percentage of the ACS population 
+that are not institutionalized people, people in military group quarters, 
+people in college dormitories, and unrelated individuals under 15 years 
+old Persons  ACS   
+214 pct_Pov_Univ_ACSMOE _16_20  Calculated 
+Percentages  MOE - Percentage calculated by 
+dividing Pov_Univ_ACS _16_20 by 
+Tot_Population_ACS_16_20  Margin of Error for the percentage of 
+the ACS population that are not institutionalized people, people in military group quarters, people in college dormitories, and unrelated 
+individuals under 15 years old  Persons  ACS   
+215 pct_Prs_Blw_Pov_Lev_ACS _16_20  Calculated 
+Percentages  Percentage calculated by dividing 
+Prs_Blw_Pov_Lev_ACS_16_20 by 
+Pov_Univ_ACS_16_20  The percentage of the ACS eligible 
+population that are classified as below the poverty level given their total family or household income within the la st year, family size, and family 
+composition  Persons  ACS   
+216 pct_Prs_Blw_Pov_Lev_ACSMOE _16_20  Calculated 
+Percentages  MOE - Percentage calculated by 
+dividing 
+Prs_Blw_Pov_Lev_ACS_16_20 by 
+Pov_Univ_ACS _16_20  Margin of Error of the percentage of 
+the ACS eligible population that are classified as below the poverty level  Persons  ACS   
+217 pct_One_Health_Ins_ACS _16_20  Calculated 
+Percentages  Percentage calculated by dividing 
+One_Health_Ins_ACS_16_20 by 
+Tot_Population_ACS _16_20  The percentage of the ACS popula tion 
+that have one type of health insurance 
+coverage, including public or private  Persons  ACS   
+218 pct_One_Health_Ins_ACSMOE _16_20  Calculated 
+Percentages  MOE - Percentage calculated by 
+dividing One_Health_Ins_ACS _16_20 
+by Tot_Population_ACS _16_20  Margin of Error of the percentage of 
+the ACS population that have one 
+type of health insurance  Persons  ACS   
+219 pct_TwoPHealthIns_ACS _16_20  Calculated 
+Percentages  Percentage calculated by dividing 
+Two_Plus_Health_Ins_ACS_16_20 by 
+Tot_Population_ACS_16_20  The percentage of the ACS population 
+that have two or more types of health 
+insurance  Persons  ACS   
+ 
+29  VARNUM  NAME  Unit of Measure  LABEL  Definitions  Unit Level  Source  Denominator Note  
+220 pct_TwoPHealthIns_ACSMOE _16_20  Calculated 
+Percentages  MOE - Percentage calculated by 
+dividing 
+Two_Plus_Health_Ins_ACS_16_20 by 
+Tot_Population_ACS _16_20  Margin of Error of the percentage of 
+the ACS population that have two or more types of health insurance  Persons  ACS   
+221 pct_No_Health_Ins_ACS _16_20  Calculated 
+Percentages  Percentage calculated by dividing 
+No_Health_Ins_ACS_16_20 by 
+Tot_Population_ACS _16_20  The percentage of the ACS population 
+that have no health insurance, public 
+or private  Persons  ACS   
+222 pct_No_Health_Ins_ACSMOE _16_20  Calculated 
+Percentages  MOE - Percentage calculated by 
+dividing No_Health_Ins_ACS _16_20 
+by Tot_Population_ACS _16_20  Margin of Error of the percentage of 
+the ACS population that have no 
+health insurance  Persons  ACS   
+223 pct_Pop_1yr_Over_ACS _16_20  Calculated 
+Percentages  Percentage calcu lated by dividing 
+Pop_1yr_Over_ACS_16_20  by 
+Tot_Population_ACS _16_20  The percentage of the ACS population 
+who are ages 1 year and over at time 
+of interview  Persons  ACS   
+224 pct_Pop_1yr_Over_ACSMOE _16_20  Calculated 
+Percentages  MOE - Percentage calculated by 
+dividing Pop_1yr_Over_ACS _16_20 by 
+Tot_Population_ACS _16_20  Margin of error of the percentage of 
+the ACS population who are ages 1 
+year and over at time of interview  Persons  ACS   
+225 pct_Diff_HU_1yr_Ago_ACS _16_20  Calculated 
+Percentages  Percentage calculated by dividing 
+Diff_HU_1yr_Ago_ACS_16_20 by 
+Pop_1yr_Over_ACS_16_20  The percentage of the ACS population 
+aged 1 year and over that moved from another residence in the U.S. or 
+Puerto Rico within the last year  Persons  ACS   
+226 pct_Diff_HU_1yr_Ago_ACSMOE _16_20  Calculated 
+Percentages  MOE - Percentage calculated by 
+dividing Diff_HU_1yr_Ago_ACS_16_20 by 
+Pop_1yr_Over_ACS_16_20  Margin of Error of the percentage of 
+the ACS population aged 1 year and over that moved from another residen ce in the U.S. or Puerto Rico 
+within the last year  Persons  ACS   
+227 pct_ENG_VW_SPAN_ACS _16_20  Calculated 
+Percentages  Percentage calculated by dividing 
+ENG_VW_SPAN_ACS _16_20 by 
+Tot_Occp_Units_ACS_16_20  The percentage of all ACS occupied 
+housing units where a Spanish or 
+Spanish Creole language was assigned 
+as the household language and no one 
+ages 14 years and over speaks English 
+only or speaks English "very well"  Households  ACS   
+228 pct_ENG_VW_SPAN_ACSMOE _16_20  Calculated 
+Percentages  MOE - Percentage calculated by 
+dividing ENG_VW_SPAN_ACS _16_20 by 
+Tot_Occp_Units_ACS_16_20  Margin of error of the percentage of 
+all ACS occupied housing units where a Spanish or Spanish Creole language was assigned as the household 
+language and no one ages 14 yea rs 
+and over speaks English only or 
+speaks English "very well"  Households  ACS   
+ 
+30  VARNUM  NAME  Unit of Measure  LABEL  Definitions  Unit Level  Source  Denominator Note  
+229 pct_ENG_VW_INDOEURO_ACS _16_20  Calculated 
+Percentages  Percentage calculated by dividing 
+ENG_VW_INDO_EURO_ACS _16_20 
+by Tot_Occp_Units_ACS _16_20  The percentage of all ACS occupied 
+housing units where an Indo-
+European language was assigned as the household language and no one 
+ages 14 years and over speaks English 
+only or speaks English "very well"  Households  ACS   
+230 pct_ENG_VW_INDOEURO_ACSMOE _16_2
+0 Calculated 
+Percentages  MOE - Percentage calculated by 
+dividing 
+ENG_VW_INDO_EURO_ACS _16_20 
+by Tot_Occp_Units_ACS _16_20  Margin of error of the percentage of 
+all ACS occupied housing units where an Indo- European language was 
+assigned as the household language and no one ages 14 year s and over 
+speaks English only or speaks English 
+"very well"  Households  ACS   
+231 pct_ENG_VW_API_ACS _16_20  Calculated 
+Percentages  Percentage calculated by dividing 
+ENG_VW_API_ACS _16_20  by 
+Tot_Occp_Units_ACS_16_20  The percentage of all ACS occupied 
+housing units where an Asian and Pacific Island language was assigned as the household language and no one ages 14 years and over speaks English 
+only or speaks English "very well"  Households  ACS   
+232 pct_ENG_VW_API_ACSMOE _16_20  Calculated 
+Percentages  MOE - Percentage calculated by 
+dividing ENG_VW_API_ACS _16_20 
+by Tot_Occp_Units_ACS _16_20  Margin of error of the percentage of 
+all ACS occupied housing units where an Asian and Pacific Island language was assigned as the household language and no one ages 14 ye ars 
+and over speaks English only or 
+speaks English "very well"  Households  ACS   
+233 pct_ENG_VW_OTHER_ACS _16_20  Calculated 
+Percentages  Percentage calculated by dividing 
+ENG_VW_OTHER_ACS _16_20 by 
+Tot_Occp_Units_ACS_16_20  The percentage of all ACS occupied 
+housing units where a language other than English, Spanish, Indo- Euro, or 
+API was assigned as the household language and no one ages 14 years 
+and over speaks English only or 
+speaks English "very well"  Households  ACS   
+234 pct_ENG_VW_OTHER_ACSMOE _16_20  Calculated 
+Percentages  MOE - Percentage calculated by 
+dividing 
+ENG_VW_OTHER_ACS _16_20 by 
+Tot_Occp_Units_ACS_16_20  Margin of error of the percentage of 
+all ACS occupied housing units where a language other than English, Spanish, Indo -Euro, or API was 
+assigned as the household language 
+and no one ages 14 years and over 
+speaks English only or speaks English 
+"very well"  Households  ACS   
+ 
+31  VARNUM  NAME  Unit of Measure  LABEL  Definitions  Unit Level  Source  Denominator Note  
+235 pct_ENG_VW_ACS _16_20  Calculated 
+Percentages  Percentage calculated by dividing 
+ENG_VW_ACS _16_20  by 
+Tot_Occp_Units_ACS_16_20  The percentage of all ACS occupied 
+housing units where no one ages 14 
+years and over speaks English only or 
+speaks English "very well"  Households  ACS   
+236 pct_ENG_VW_ACSMOE _16_20  Calculated 
+Percentages  MOE - Percentage calculated by 
+dividing ENG_VW_ACS _16_20 by 
+Tot_Occp_Units_ACS_16_20  Margin of error of the percentage of 
+all ACS occupied housing units where no one ages 14 years and over speaks English only or speaks English "very 
+well"  Households  ACS   
+237 pct_Rel_Family_HHD_ACS _16_20  Calculated 
+Percentages  Percentage calculated by dividing 
+Rel_Family_HHD_ACS _16_20 by 
+Tot_Occp_Units_ACS_16_20  The percentage of all ACS occupied 
+housing units where at least 2 members are related by birth, 
+marriage, or adoption; unmarried 
+same -sex couple households with no 
+relatives of the householder present 
+are not included  Households  ACS   
+238 pct_Rel_Family_HHD_ACSMOE _16_20  Calculated 
+Percentages  MOE - Percentage calculated by 
+dividing Rel_Family_HHD_ACS _16_20 by 
+Tot_Occp_Units_ACS _16_20  Margin of error of the percentage of 
+all ACS occupied housing units where at least 2 members are related by 
+birth, marriage, or adoption  Households  ACS   
+239 pct_MrdCple_HHD_ACS _16_20  Calculated 
+Percentages  Percentage calculated by dividing 
+MrdCple_Fmly_HHD_ACS_16_20 by 
+Tot_Occp_Units_ACS_16_20  The percentage of all ACS occupied 
+housing units where the householder and his or her spouse are listed as members of the same household; does 
+include same - sex married couples  Households  ACS   
+240 pct_MrdCple_HHD_ACSMOE _16_20  Calculated 
+Percentages  MOE - Percentage calculated by 
+dividing MrdCple_Fmly_HHD_ACS_16_20 by 
+Tot_Occp_Units_ACS_16_20  Margin of error of the percentage of 
+all ACS occupied housing units where the householder and his or her spouse 
+are listed as members of the same 
+household  Households  ACS   
+241 pct_Not_MrdCple_HHD_ACS _16_20  Calculated 
+Percentages  Percentage calculated by dividing 
+Not_MrdCple_HHD_ACS_16_20 by 
+Tot_Occp_Units_ACS _16_20  The percentage of all ACS occupied 
+housing units with no spousal 
+relationship present  Households  ACS   
+242 pct_Not_MrdCple_HHD_ACSMOE _16_20  Calculated 
+Percentages  MOE - Percentage calculated by 
+dividing Not_MrdCple_HHD_ACS_16_20 by 
+Tot_Occp_Units_ACS _16_20  Margin of error of the percentage of 
+all ACS occupied housing units with no spousal relationship present  Households  ACS   
+243 pct_Female_No_ SP_ACS _16_20  Calculated 
+Percentages  Percentage calculated by dividing 
+Female_No_ SP_ACS _16_20 by 
+Tot_Occp_Units_ACS_16_20  The percentage of all ACS occupied 
+housing units with a female householder and no spouse of 
+householder present  Households  ACS   
+ 
+32  VARNUM  NAME  Unit of Measure  LABEL  Definitions  Unit Level  Source  Denominator Note  
+244 pct_Female_No_ SP_ACSMOE _16_20  Calculated 
+Percentages  MOE - Percentage calculated by 
+dividing F emale_No_ SP_ACS _16_20 
+by Tot_Occp_Units_ACS _16_20  Margin of error of the percentage of 
+all ACS occupied housing units with a 
+female householder and no spouse of 
+householder present  Households  ACS   
+245 pct_NonFamily_HHD_ACS _16_20  Calculated 
+Percentages  Percentage calculated by dividing 
+NonFamily_HHD_ACS _16_20 by 
+Tot_Occp_Units_ACS_16_20  The percentage of all ACS occupied 
+housing units where a householder lives alone or with nonrelatives only; includes unmarried same -sex couples 
+where no relat ives of the householder 
+are present  Households  ACS   
+246 pct_NonFamily_HHD_ACSMOE _16_20  Calculated 
+Percentages  MOE - Percentage calculated by 
+dividing NonFamily_HHD_ACS _16_20 
+by Tot_Occp_Units_ACS _16_20  Margin of error of the percentage of 
+all ACS occupied housing units where 
+a householder lives alone or with 
+nonrelatives only  Households  ACS   
+247 pct_Sngl_Prns_HHD_ACS _16_20  Calculated 
+Percentages  Percentage calculated by dividing 
+Sngl_Prns_HHD_ACS_16_20  by 
+Tot_Occp_Units_ACS _16_20  The percentage of all ACS occupied 
+housing units where a householder 
+lives alone  Households  ACS   
+248 pct_Sngl_Prns_HHD_ACSMOE _16_20  Calculated 
+Percentages  MOE - Percentage calculated by 
+dividing Sngl_Prns_HHD_ACS _16_20 
+by Tot_Occp_Units_ACS _16_20  Margin of error of the percentage of 
+all ACS occupied housing units where 
+a householder lives alone  Households  ACS   
+249 pct_HHD_PPL_Und_18_ACS _16_20  Calculated 
+Percentages  Percentage calculated by dividing 
+HHD_PPL_Und_18_ACS_16_20 by 
+Tot_Occp_Units_ACS _16_20  The percentage of all ACS occupied 
+housing units where one or more 
+people are ages 18 years or under  Households  ACS   
+250 pct_HHD_PPL_Und_18_ACSMOE _16_20  Calculated 
+Percentages  MOE - Percentage calculated by 
+dividing 
+HHD_PPL_Und_18_ACS_16_20 by 
+Tot_Occp_Units_ACS _16_20  Margin of error of the percentage of 
+all ACS occupied housing units where one or more people are ages 18 years 
+or under  Households  ACS   
+251 avg_Tot_Prns_in_HHD_ACS _16_20  Calculated 
+Percentages  Percentag e calculated by dividing 
+Tot_Prns_in_HHD_ACS_16_20 by 
+Tot_Occp_Units_ACS_16_20  The average number of persons per 
+ACS occupied housing unit. This was calculated by dividing the total household population in the ACS by the total number of occupied housing 
+units in the ACS.  Households  ACS   
+252 avg_Tot_Prns_in_HHD_ACSMOE _16_20  Calculated 
+Percentages  MOE - Percentage calculated by 
+dividing 
+Tot_Prns_in_HHD_ACS_16_20 by 
+Tot_Occp_Units_ACS _16_20  Margin of error of the average number 
+of persons per ACS occupied housing unit Households  ACS   
+ 
+33  VARNUM  NAME  Unit of Measure  LABEL  Definitions  Unit Level  Source  Denominator Note  
+253 pct_Rel_Under_6_ACS _16_20  Calculated 
+Percentages  Percentage calculated by dividing 
+Rel_Child_Under_6_ACS_16_20 by 
+Rel_Family_HHD_ACS _16_20  The percentage of 2020  ACS family -
+occupied housing units with a related 
+child under 6 years old; same -sex 
+couple households with no relatives of 
+the householder present are not 
+included in the denominator  Families  ACS   
+254 pct_Rel_Under_6_ACSMOE _16_20  Calculated 
+Percentages  MOE - Percentage calculated by 
+dividing 
+Rel_Child_Under_6_ACS_16_20 by 
+Rel_Family_HHD_ACS _16_20  Margin of error of the percentage of 
+2020 ACS family - occupied housing 
+units with a related child under 6 
+years old  Families  ACS   
+255 pct_HHD_Moved_in_ACS _16_20  Calculated 
+Percentages  Percentage calculated by dividing 
+HHD_Moved_in_ACS_16_20  by 
+Tot_Occp_Units_ACS_16_20  The percentage of all ACS occupied 
+housing units where the householder 
+moved into the current unit in the year 
+2020  or later Households  ACS   
+256 pct_HHD_Moved_in_ACSMOE _16_20  Calculated 
+Percentages  MOE - Percentage calculated by 
+dividing HHD_Moved_in_ACS _16_20 
+by Tot_Occp_Units_ACS _16_20  Margin of error of the percentage of 
+all ACS occupied housing units where 
+the householder moved into the 
+current unit in the year 2020  or later  Households  ACS   
+257 pct_PUB_ASST_INC_ACS _16_20  Calculated 
+Percentages  Percentage calculated by dividing 
+PUB_ASST_INC_ACS _16_20 by 
+Tot_Occp_Units_ACS_16_20  The percentage of all ACS occupied 
+housing units that receive public 
+assistance income (general assistance 
+and Temporary Assistance to Needy 
+Families)  Households  ACS   
+258 pct_PUB_ASST_INC_ACSMOE _16_20  Calculated 
+Percentages  MOE - Percentage calculated by 
+dividing PUB_ASST_INC_ACS _16_20 
+by Tot_Occp_Units_ACS _16_20  Margin of error of percentage of all 
+ACS occupied housing units that 
+receive public assistance income  Households  ACS   
+259 avg_Agg_HH_INC_ACS _16_20  Calculated 
+Percentages  Percentage calculated by dividing 
+Aggregate_HH_INC_ACS_16_20 by 
+Tot_Occp_Units_ACS _16_20  The average aggregated household 
+income of all ACS occupied housing 
+units.  Households  ACS   
+260 avg_Agg_HH_INC_ACSMOE _16_20  Calculated 
+Percentages  MOE - Percentage calculated by 
+dividing Aggregate_HH_INC_ACS_16_20 by 
+Tot_Occp_Units_ACS _16_20  Margin of error for the average 
+aggregated household income of all ACS occupied housing units.  Households  ACS   
+261 pct_Tot_Occp_Units_CEN_ 2020  Calculated 
+Percentages  Percentage calculated by dividing 
+Tot_Occp_Units_CEN_2020 by 
+Tot_Housing_Units_CEN_2020  The percentage of all 2020  Census 
+housing units that are classified as the 
+usual place of residence of the 
+individual or group living in it  Housing 
+Units  2020  Census   
+262 pct_Tot_Occp_Units_ACS _16_20  Calculated 
+Percentages  Percentage calculated by dividing 
+Tot_Occp_Units_ACS_16_20  by 
+Tot_Housing_Units_ACS_16_20  The percentage of all ACS housing 
+units that are classified as the usual 
+place of residence of the individual or 
+group living in it  Housing 
+Units  ACS   
+ 
+34  VARNUM  NAME  Unit of Measure  LABEL  Definitions  Unit Level  Source  Denominator Note  
+263 pct_Tot_Occp_Units_ACSMOE _16_20  Calculated 
+Percentages  MOE - Percentage calculated by 
+dividing Tot_Occp_Units_ACS _16_20 
+by Tot_Housing_Units_ACS _16_20  Margin of error for the percentage of 
+all ACS housing units that are 
+classified as the usual place of residence of the individual or group 
+living in it  Housing 
+Units  ACS   
+264 pct_Vacant_Units_CEN_ 2020  Calculated 
+Percentages  Percentage calculated by dividing 
+Tot_Vacant_Units_CEN_2020 by 
+Tot_Housing_Units_CEN_2020  The percentage of all 2020  Census 
+housing units that have no regular occupants on Census Day; housing units with its usual occupants temporarily away (such as on vacation, a business trip, or in the 
+hospital) are not considered vacant, 
+but housing units temporarily occupied on Cens us Day by people 
+who have a usual residence elsewhere 
+are considered vacant  Housing 
+Units  2020  Census   
+265 pct_Vacant_Units_ACS _16_20  Calculated 
+Percentages  Percentage calculated by dividing 
+Tot_Vacant_Units_ACS_16_20 by 
+Tot_Housing_Units_ACS_16_20  The percentage of all ACS housing 
+units where no one is living regularly 
+at the time of interview; units 
+occupied at the time of interview entirely by persons who are staying two months or less and who have a more permanent residence elsewhere 
+are classified as vacant  Housing 
+Units  ACS   
+266 pct_Vacant_Units_ACSMOE _16_20  Calculated 
+Percentages  MOE - Percentage calculated by 
+dividing Tot_Vacant_Units_ACS_16_20 by 
+Tot_Housing_Units_ACS _16_20  Margin of error for the percentage of 
+all ACS housing units where no one is living regularly at the time of 
+interview  Housing 
+Units  ACS   
+267 pct_Renter_Occp_HU_ACS _16_20  Calculated 
+Percentages  Percentage calculated by dividing 
+Renter_Occp_HU_ACS_16_20 by 
+Tot_Occp_Units_ACS_16_20  The percentage of ACS occupied 
+housing units that are not owner occupied, whether they are rented or 
+occupied without payment of rent  Housing 
+Units  ACS   
+268 pct_Renter_Occp_HU_ACSMOE _16_20  Calculated 
+Percentages  MOE - Percentage calculated by 
+dividing Renter_Occp_HU_ACS _16_20 
+by Tot_Occp_Units_ACS _16_20  Margin of error for the percentage of 
+ACS occupied housing units that are 
+not owner occupied  Housing 
+Units  ACS   
+269 pct_Owner_Occp_HU_ACS _16_20  Calculated 
+Percentages  Percentage calculated by dividing 
+Owner_Occp_HU_ACS _16_20 by 
+Tot_Occp_Units_ACS _16_20  The percentage of ACS occupied 
+housing units with an owner or co-
+owner living in it  Housing 
+Units  ACS   
+270 pct_Owner_Occp_HU_ACSMOE _16_20  Calculated 
+Percentages  MOE - Percentage calculated by 
+dividing 
+Owner_Occp_HU_ACS _16_20 by 
+Tot_Occp_Units_ACS _16_20  Margin of error for the ACS occupied 
+housing units with an owner or co-owner living in it  Housing 
+Units  ACS   
+ 
+35  VARNUM  NAME  Unit of Measure  LABEL  Definitions  Unit Level  Source  Denominator Note  
+271 pct_Single_Unit_ACS _16_20  Calculated 
+Percentages  Percentage calculated by dividing 
+Single_Unit_ACS_16_20  by 
+Tot_Housing_Units_ACS _16_20  The percentage of all ACS housing 
+units that are in a structure that 
+contains only that single unit  Housing 
+Units  ACS   
+272 pct_Single_Unit_ACSMOE _16_20  Calculated 
+Percentages  MOE - Percentage calculated by 
+dividing Single_Unit_ACS _16_20 by 
+Tot_Housing_Units_ACS_16_20  Margin of error for the percentage of 
+all ACS housing units that are in a 
+structure that contains only that  single 
+unit Housing 
+Units  ACS   
+273 pct_MLT_U2_9_STRC_ACS _16_20  Calculated 
+Percentages  Percentage calculated by dividing 
+MLT_U2_9_STRC_ACS_16_20 by 
+Tot_Housing_Units_ACS _16_20  The percentage of all ACS housing 
+units that are in a structure that 
+contains t wo to nine housing units  Housing 
+Units  ACS   
+274 pct_MLT_U2_9_STRC_ACSMOE _16_20  Calculated 
+Percentages  MOE - Percentage calculated by 
+dividing 
+MLT_U2_9_STRC_ACS_16_20 by 
+Tot_Housing_Units_ACS _16_20  Margin of error for the percentage of 
+all ACS housing units that are in a structure that contains two to nine 
+housing units  Housing 
+Units  ACS   
+275 pct_MLT_U10p_ACS _16_20  Calculated 
+Percentages  Percentage calculated by dividing 
+MLT_U10p_ACS_16_20  by 
+Tot_Housing_Units_ACS _16_20  The percentage of all ACS housing 
+units that are in a structure that 
+contains 10 or more housing units  Housing 
+Units  ACS   
+276 pct_MLT_U10p_ACSMOE _16_20  Calculated 
+Percentages  MOE - Percentage calculated by 
+dividing MLT_U10p_ACS _16_20 by 
+Tot_Housing_Units_ACS_16_20  Margin of er ror for the percentage of 
+all ACS housing units that are in a structure that contains 10 or more 
+housing units  Housing 
+Units  ACS   
+277 pct_Mobile_Homes_ACS _16_20  Calculated 
+Percentages  Percentage calculated by dividing 
+Mobile_Homes_ACS_16_20 by 
+Tot_Housing_Units_ACS _16_20  The percentage of all ACS housing 
+units that are considered mobile 
+homes  Housing 
+Units  ACS   
+278 pct_Mobile_Homes_ACSMOE _16_20  Calculated 
+Percentages  MOE - Percentage calculated by 
+dividing Mobile_Homes_ACS _16_20 
+by Tot_Housing_Units_ACS _16_20  Margin of error for the percentage of 
+all ACS housing units that are 
+considered mobile homes  Housing 
+Units  ACS   
+279 pct_Crowd_Occp_U_ACS _16_20  Calculated 
+Percentages  Percentage calculated by dividing 
+Crowd_Occp_U_ACS_16_20 by 
+Tot_Occp_Units_ACS _16_20  The percentage of ACS occupied 
+housing units that have more than 
+1.01 persons per room  Housing 
+Units  ACS   
+280 pct_Crowd_Occp_U_ACSMOE _16_20  Calculated 
+Percentages  MOE - Percentage calculated by 
+dividing Crowd_Occp_U_ACS_16_20 
+by Tot_Occp_Units_ACS _16_20  Margin of error for the percentage of 
+ACS occupied housing units that have 
+more than 1.01 persons per room  Housing 
+Units  ACS   
+281 pct_NO_PH_SRVC_ACS _16_20  Calculated 
+Percentages  Percentage calculated by dividing 
+Occp_U_NO_PH_SRVC_ACS _16_20 
+by Tot_Occp_Units_ACS _16_20  The percentage of ACS occupied 
+housing units that do not have a working telephone and available 
+service  Housing 
+Units  ACS   
+282 pct_NO_PH_SRVC_ACSMOE _16_20  Calculated 
+Percentages MOE - Percentage calculated by 
+dividing Occp_U_NO_PH_SRVC_ACS _16_20 
+by Tot_Occp_Units_ACS _16_20  Margin of error for the percentage of 
+ACS occupied housing units that do not have a working telephone and 
+available service  Housing 
+Units  ACS   
+ 
+36  VARNUM  NAME  Unit of Measure  LABEL  Definitions  Unit Level  Source  Denominator Note  
+283 pct_No_Plumb_ACS _16_20  Calculated 
+Percentages  Percentage calculated by dividing 
+No_Plumb_ACS_16_20 by 
+Tot_Housing_Units_ACS _16_20  The percentage of all ACS housing 
+units that do not have complete 
+plumbing facilities  Housing 
+Units  ACS   
+284 pct_No_Plumb_ACSMOE _16_20  Calculated 
+Percentages  MOE - Percentage calculated by 
+dividing No_Plumb_ACS _16_20 by 
+Tot_Housing_Units_ACS _16_20  Margin of error for the percentage of 
+all ACS housing units that do not have 
+complete plumbing facilities  Housing 
+Units  ACS   
+285 pct_Recent_Built_HU_ACS _16_20  Calculated 
+Percentages  Percentage calculated by dividing 
+Recent_Built_HU_ACS_16_20 by 
+Tot_Housing_Units_ACS _16_20  The percentage of all ACS housing 
+units that are in a building that was 
+constructed in 2020  or later  Housing 
+Units  ACS   
+286 pct_Recent_Built_HU_ACSMOE _16_20  Calculated 
+Percentages  MOE - Percentage calculated by 
+dividing Recent_Built_HU_ACS _16_20 
+by Tot_Ho using_Units_ACS _16_20  Margin of error for all ACS housing 
+units that are in a building that was 
+constructed in 2020  or later  Housing 
+Units  ACS   
+287 avg_Agg_House_Value_ACS _16_20  Calculated 
+Percentages  Percentage calculated by dividing 
+Aggr_House_Value_ACS_16_20 by 
+Tot_Occp_Units_ACS _16_20  Average aggregated value in dollars 
+for ACS occupied housing units.  Housing 
+Units  ACS   
+288 avg_Agg_House_Value_ACSMOE _16_20  Calculated 
+Percentages  MOE - Percentage calculated by 
+dividing 
+Aggr_House_Value_ACS_16_20 by 
+Tot_Occp_Units_ACS _16_20  Margin of error for average 
+aggregated value in dollars for ACS occupied housing units.  Housing 
+Units  ACS   
+ 
+37   
+ 
+Appendix  A. Margin  of Error Calculations  and  Nonsampling  Error  
+ 
+The 202 2 PDB provides ACS small area estimates that are easily accessible by a wide range of users. It 
+is important to note that these small area estimates are estimates, with accompanying sampling error.  
+The Margin of Error (MOE) for any estimate needs to be cons idered when using any single estimate, as 
+it provides the best indicator of the variability across units within the estimate. There are various  
+accepted formulas for calculating MOEs. An advisory group in the development of the Tract PDB  
+decided to use t he formula noted in  Understanding and Using American Community Survey Data: 
+What All Data Users Need to Know (https://www.census.gov/content/dam/Census/library/publications/2020/acs/acs_general_handbook
+_2020.pdf ) for calculating MOEs from grouped summary data.   
+ 
+A review of the coefficients of variation (which measure the standard deviation of an estimate relative  
+to the mean) reveals those estimates with a large CV, which suggests a less reliable estimate. Generally, 
+small sample sizes are more prone to large MOEs, which in turn lead to larger CVs. The small sample 
+can be the result of a characteristic of low incidence in the population or the result of subpopulations 
+within a population.  
+ 
+As a result, we caution against taking any single estimate with a large MOE as absolute. The key is that 
+unstable estimates should not be used for decisions about individual trac ts. We recognize the 
+importance of small area data to aid in planning and operational activities. However, we make these data available for summing to higher levels of geography where the data can be useful, such as Census 
+Designated Places, Local Census O ffices, or any collection of tracts that bear on the activity at hand. 
+We ask that the user of the block group data note the limitations of the estimates to those who may 
+be using the data for decision purposes.  
+The margin of error around an estimate is im portant because it helps data users draw conclusions 
+about the reliability of the data. Small differences between two estimates may not be statistically 
+significant if the confidence intervals of those estimates overlap. However, the Census Bureau 
+cautions  data users not to rely on overlapping confidence intervals as a test for statistical significance, 
+because this method will not always produce accurate results. Instead, the Census Bureau 
+recommends following the detailed instructions for conducting stati stical significance tests in Chapter 
+7 of Understanding and Using American Community Survey Data: What All Data Users Need to Know 
+(https://www.census.gov/content/dam/Census/library/publications/2020/acs/acs_general_handbook
+_2020.pdf ).  
+ 
+In some cases, dat a users will need to construct custom ACS estimates by combining data across  
+multiple geographic areas or population subgroups, or it may be necessary to derive a new percentage, 
+proportion, or ratio from published ACS data. In such cases, additional calc ulations are needed to 
+produce confidence intervals and margins of error for the derived estimates.   Chapters 7 -8 of 
+Understanding and Using American Community Survey Data: What All Data Users Need to Know 
+ 
+38  (https://www.census.gov/content/dam/Census/library/publications/2020/acs/acs_general_handbook_
+2020.pdf ) provides detailed instructions on how to make these calculations.  Please note that published 
+margins of error, when available, should always be used over calculated measures of error.  
+Note that these er ror measures do not tell us about the magnitude of nonsampling errors.  To learn 
+more about nonsampling error in the 201 6 – 2020 ACS, please see the section titled “Control of 
+Nonsampling Error” in American Community Survey Multiyear Accuracy of the Data ( 5-year 201 6-2020): 
+(https://www2.census.gov/programs -
+surveys/acs/tech_docs/accuracy/MultiyearACSAccuracyofData2020.pdf ). 
+39  
+ Appendix B. Calculating Response Rates  
+ 
+Prior versions of the PDB contained decennial variables such as the Mail Response Rate and Mail Return 
+Rate for the 2010 Census.  Normally this appendix would be used to describe the formulas for these 
+variables.  However, these variables are omitted from the 2022 PDB regarding the 2020 Census  due to 
+data availability at the time of publication .  They will be reintroduced to  future versions of the PDB as 
+they become available .   
+40  
+ Appendix  C. Key  Estimates of the Planning Database  
+ 
+Twenty  variables were identified as key estimates of the 2022  PDB. Some of these variables would 
+be used to calculate the LRS  (which is not included in the 2022 PDB) , while others are newer 
+variables that may be of interest to users. To assess the quality of these estimates, the median 
+coefficient of variation and the median item nonresponse rate were calculated. The results are 
+presented in the following table. Of th e 20 variables, 9 have a median coefficient of variation below 
+30.00, and all but two applicable variables have a median item missing rate below 30.00.  
+41  
+  
+ 
+Estimate  Name   
+Definitions  Median   
+Coefficient  of 
+Variation  Median  Item  
+Missing  Rate  
+ 
+College_ACS_16_20  Number  of people  ages  25 years  and over  at the 
+time  of interview  with  a college  degree  or higher  in 
+the ACS population  29.42  5.78  
+ 
+ 
+Prs_Blw_Pov_Lev_ACS_16_20  Number  of people  classified  as below  the poverty  
+level  given their  total  family  income  within  the last 
+year,  family  size, and family composition  in the ACS 
+population  53.48  * 
+ 
+ 
+MrdCple_Fmly_HHD_ACS_16_20  Number  of ACS households  in which  the 
+householder  and his or her spouse  are listed  as 
+members  of the same  household;  does  not include  
+same -sex married  couples  24.87  * 
+ 
+ 
+NonFamily_HHD_ACS_16_20  Number  of ACS households  where  a householder  
+lives  alone  or with  nonrelatives  only;  includes  same -
+sex couples  where  no relatives  of the householder 
+are present  32.32  * 
+Sngl_Prns_HHD_ACS_16_20  Number  of ACS households  where  a householder 
+lives  alone  35.98  * 
+Rel_Child_Under_6_ACS_16_20  Number  of ACS families  with  related  children  under 
+6 years old 55.72  * 
+Med_HHD_Inc_BG_ACS_16_20  Median  ACS household  income  for the block  
+group  19.20  35.00  
+Med_HHD_Inc_TR_ACS_16_20  Median  ACS household  income  for the tract  11.64  35.23  
+ 
+Renter_Occp_HU_ACS_16_20  Number  of 2010  Census  occupied  housing  units 
+that are not owner  occupied,  whether they  are 
+rented or occupied without payment of rent  35.16  0.00  
+Owner_Occp_HU_ACS_16_20  Number of ACS housing units where owner or co -
+owner lives in it  19.74  0.00  
+42  
+  
+Single_Unit_ACS_16_20  Number of ACS housing units in which the 
+structure contains only that single unit  18.29  0.00  
+ 
+MLT_U2_9_STRC_ACS_16_20  Number of ACS housing units in which the 
+structure contains 2 or more housing units  52.11  0.00  
+ 
+MLT_U10p_ACS_16_20  Number of ACS housing units in which the 
+structure contains 10 or more housing units  47.76  0.00  
+Med_House_Value_BG_ACS_16_20  Median of ACS respondents' house value 
+estimates for the block group  9.32  7.80  
+Med_House_value_tr_ACS_16_20  Median of ACS respondents' house value 
+estimates for the tract  6.32  9.28  
+One_Health_Ins_ACS_16_20  Number of people with one type of health 
+insurance coverage in the ACS  17.62  15.31  
+ 
+Two_Plus_Health_Ins_ACS_16_20  Number of people with two or more types of 
+health insurance coverage in the ACS  32.09  15.31  
+No_Health_Ins_ACS_16_20  Number of people with no health insurance 
+coverage in the ACS  54.10  15.31  
+NH_Multi_Races_ACS_16_20  Number of people who indicate no Hispanic 
+origin and their race as at least two of "White", 
+"Black or African American", "American I ndian or 
+Alaska Native", "Asian", "Native Hawaiian or Other Pacific Islander" , or “Some Other Race” in 
+the ACS population  79.66  0.00  
+Educ_Grade6orLess_ACS_16_20  Number of people ages 25 years and over at time 
+of interview who have a highest level of education of Grade 6 or less in the ACS 
+population  85.73  5.78  
+* No item missing rate could be calculated directly for these estimates. These items are composed of multiple questions from the ACS. We 
+examined the item missing rate of questions that compose these estimates (age, sex, relationship, marital status), and none were above 2.00
+43  
+ Appendix  D. Changes  to Geography  
+ 
+Geographic numbering and definitions can change over time. Generally, major changes to geographic 
+boundaries are made during the decennial census, but errors in boundary definitions or numbering 
+may lead to updates in the intervening years. For the 2022 PD B, the number of block groups is 242,335, 
+based on 2020 Census geography.  This is a change from prior versions of the PDB, in which the 
+number of block groups was approximately 220,000 based on 2010 Census geography.   
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+44  
+   Appendix  E. Changes  to ACS Variables  
+ 
+ACS variable names  and definitions can change over time.  The Census Bureau provides detailed tables 
+for all ACS 5 -year estimates, and several new or modified tables were provided for the 2016 -2020 ACS 5 -
+year estimat es.  While no names or definitions changed for any ACS variables in the 2022 PDB compared 
+to the previous year, there are a number of new variables pertaining to two demographics.  These 
+demographics are: (i) the multi-racial population  that is not Hispani c or Latino , and (ii) the population of 
+adults age 25 or older having their highest level of education at Grade 6 or less.  For each of these populations, there are four ACS variables, reflecting: (i) the number of people meeting these criteria, (ii) the m argin of error of this number, (iii) the percentage of people meeting these criteria, and (iv) the 
+margin of error of this percentage.  In addition, for the multi- racial population, the 2022 PDB has two 
+variables based on 2020 Census data, reflecting: (i) the number of people meeting these criteria, and (ii) the percentage of people meeting these criteria.  
+ Other new or modified tables were provided by the Census Bureau for the 2016 -2020 ACS, but these 
+did not impact the 2022 PDB.  For a full description o f the 2016 -2020 ACS 5 -year estimates and the new, 
+modified, or deleted tables, please see technical documentation located at 
+https://www.census.gov/programs -surveys/acs/technical- documentation/table -and-geography -
+changes/2020/5 -year.html . 
+ 
